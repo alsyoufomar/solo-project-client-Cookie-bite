@@ -1,0 +1,30 @@
+.nav {
+  height: 3.5em;
+  display: flex;
+  padding: 1.25em 2.25em;
+  box-shadow: 0 0.18641em 0.466025em rgba(0, 0, 0, 0.1);
+  width: 100%;
+  background: var(--clr-dark);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: var(--clr-accent);
+  z-index: 100;
+}
+.nav__list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  font-size: var(--fs-body);
+}
+
+.nav__list li {
+  list-style: none;
+  margin: 1em;
+}
+
+.nav__logo--item {
+  font-size: var(--fs-h3);
+}
