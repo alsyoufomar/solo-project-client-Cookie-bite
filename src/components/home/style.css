@@ -16,3 +16,109 @@
   margin-bottom: auto;
   font-size: var(--fs-h1);
 }
+
+/* featured events list */
+
+.featured {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+  height: 23em;
+  align-items: center;
+  padding: 0 1em;
+  gap: 0.5em;
+}
+
+.featured::-webkit-scrollbar {
+  display: none;
+}
+
+.featured .event {
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.featured-title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-reg);
+  color: var(--clr-dark);
+  margin: 5rem 0 0 2rem;
+}
+
+.featured-subtitle {
+  color: var(--clr-titles);
+  font-size: var(--fs-body);
+  margin: 1.5rem 0 0 2rem;
+}
+
+.featured-tag {
+  position: absolute;
+  top: 1.5em;
+  left: 1.5em;
+  display: flex;
+  height: 1.5em;
+  width: 6em;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-weight: var(--fw-reg);
+  border-radius: 0.2em;
+}
+
+/* Happening this week */
+
+.thisWeek-title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-reg);
+  color: var(--clr-dark);
+  margin: 4rem 0 0 2rem;
+}
+
+.thisWeek-subtitle {
+  color: var(--clr-titles);
+  font-size: var(--fs-body);
+  margin: 1.5rem 0 0 2rem;
+}
+
+.thisWeek {
+  margin-top: 2em;
+  padding: 0 3em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow-y: none;
+  gap: 0.5em;
+  height: auto;
+}
+
+.loadMore {
+  width: 100%;
+  height: 2.5em;
+  outline: none;
+  border: 1px solid var(--clr-accent);
+  margin: 2em 0;
+  border-radius: 0.5em;
+  background-color: var(--clr-light);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+}
+
+.loadMore-off {
+  filter: brightness(70%);
+  width: 100%;
+  height: 2.5em;
+  outline: none;
+  border: 1px solid var(--clr-accent);
+  margin: 2em 0;
+  border-radius: 0.5em;
+  background-color: var(--clr-light);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+}
+
+.loadMore:hover {
+  background-color: var(--clr-accent);
+}
+

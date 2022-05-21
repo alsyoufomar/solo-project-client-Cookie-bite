@@ -4,6 +4,7 @@ export default function EventCard(props) {
     <li className='event'>
       <div className='flip-card-inner'>
         <div className='event--info'>
+          <span className='featured-tag'>Featured</span>
           <div className='event__image'>
             <img src={card.image} alt={card.title} />
           </div>

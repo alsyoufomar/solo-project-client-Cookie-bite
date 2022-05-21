@@ -1,5 +1,8 @@
 import { React } from 'react';
 import FilterBar from '../filterBar/Filterbar';
+import Featured from '../Featured';
+import ThisWeek from '../ThisWeek';
+
 import './style.css';
 
 const Home = ({
@@ -11,18 +14,22 @@ const Home = ({
   date,
 }) => {
   return (
-    <div className='hero'>
-      <div className='brand-title'>
-        <i class='fa-solid fa-cookie-bite'></i>ookie bite
+    <div className='home'>
+      <div className='hero'>
+        <div className='brand-title'>
+          <i className='fa-solid fa-cookie-bite'></i>ookie bite
+        </div>
+        <FilterBar
+          setLocation={setLocation}
+          location={location}
+          setFormData={setFormData}
+          formData={formData}
+          setDate={setDate}
+          date={date}
+        />
       </div>
-      <FilterBar
-        setLocation={setLocation}
-        location={location}
-        setFormData={setFormData}
-        formData={formData}
-        setDate={setDate}
-        date={date}
-      />
+      <Featured />
+      <ThisWeek />
     </div>
   );
 };

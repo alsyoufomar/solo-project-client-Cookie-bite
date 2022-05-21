@@ -14,28 +14,33 @@ const Events = ({
 }) => {
   const [data, setData] = useState([]);
   const [dateToggle, setDateToggle] = useState(false);
-  const [cursorId, setCursor] = useState(0);
+  const [page, setPage] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [filter, setFilter] = useState(false);
+  const [dataCount, setDataCount] = useState(0);
+  const [LoadMoreToggle, setLoadMoreToggle] = useState(true);
   const dateContainer = useRef(null);
   const container = useRef(null);
 
-  const perPage = 12;
+  const perPage = 8;
   const start = date[0].startDate;
   const end = date[0].endDate;
 
   let url = 'http://localhost:5000/event';
   const dateRange = `&startDate=${start}&endDate=${end}`;
-  const pagination = `&cursorId=${cursorId}&perPage=${perPage}`;
+  const pagination = `&page=${page}&perPage=${perPage}`;
   let path = `location=${location}&genre=${formData.name}${dateRange}${pagination}`;
 
   useEffect(() => {
     fetch(`${url}?${path}`)
       .then((res) => res.json())
       .then((res) => {
-        setData(res.events[1]);
+        setDataCount(res.events[0]);
+        setData((x) => {
+          return [...new Set([...x, ...res.events[1]])];
+        });
       });
-  }, [filter]);
+  }, [page, filter]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -64,6 +69,15 @@ const Events = ({
         [name]: value,
       };
     });
+  }
+
+  function loadMore() {
+    if (data.length < dataCount || page === 0) {
+      setPage((x) => x + 1);
+    }
+    if (data.length >= dataCount) {
+      setLoadMoreToggle(false);
+    }
   }
 
   return (
@@ -112,6 +126,13 @@ const Events = ({
         {data.map((card) => {
           return <EventCard key={card.id} card={card} />;
         })}
+        {data.length >= 1 && (
+          <button
+            onClick={loadMore}
+            className={LoadMoreToggle ? 'loadMore' : 'loadMore-off'}>
+            Load more results
+          </button>
+        )}
       </ul>
     </>
   );
