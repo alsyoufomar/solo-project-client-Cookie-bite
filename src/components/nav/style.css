@@ -11,6 +11,7 @@
   width: 100%;
   color: var(--clr-accent);
   z-index: 100;
+  justify-content: space-between;
 }
 .nav__list {
   display: flex;
@@ -27,4 +28,14 @@
 
 .nav__logo--item {
   font-size: var(--fs-h3);
+}
+
+.nav-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-login-item {
+  margin: 0 0.5em;
 }

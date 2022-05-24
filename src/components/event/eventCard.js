@@ -6,12 +6,12 @@ export default function EventCard(props) {
     <li className='event'>
       <a href={card.url} rel='noreferrer' target='_blank'>
         <div className='event__image'>
-          <span className='featured-tag'>Featured</span>
+          {card.featured && <span className='featured-tag'>Featured</span>}
           <img src={card.image} alt={card.title} />
         </div>
       </a>
       <div className='fav-list'>
-        <i class='fa-regular fa-bookmark'></i>
+        <i className='fa-regular fa-bookmark'></i>
       </div>
       <ul className='event__info'>
         <li className='event__info-item event__title'>
@@ -26,9 +26,7 @@ export default function EventCard(props) {
         <li className='event__info-item event__time'>{card.time}</li>
         <li className='event__info-item event__address'>
           <i className='fa-solid fa-location-dot'></i>
-          {card.fullAddress
-            ? card.fullAddress.replace(/\+/gm, '\n')
-            : card.location}
+          {card.address ? card.address.replace(/\+/gm, '\n') : card.location}
         </li>
         <li className='event__info-item event__ageLimit'>{card.age}</li>
       </ul>

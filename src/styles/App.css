@@ -21,6 +21,10 @@ li {
   list-style: none;
 }
 
+textarea {
+  font-family: var(--ff-primary);
+}
+
 h1,
 h2,
 h3,
@@ -39,6 +43,7 @@ p {
   --fs-h1: 5rem;
   --fs-h2: 2.5rem;
   --fs-h3: 1.5rem;
+  --fs-h4: 1.3rem;
   --fs-body: 1rem;
   --fs-intro: 2rem;
   --fs-details: 0.7375rem;

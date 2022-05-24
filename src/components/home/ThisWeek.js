@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
-import EventCard from './event/eventCard';
-import './home/style.css';
+import EventCard from '../event/EventCard';
+import './style.css';
 
 const ThisWeek = () => {
   const [thisWeek, setThisWeek] = useState([]);

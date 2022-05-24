@@ -1,8 +1,12 @@
 import './styles/App.css';
-import Nav from './components/nav/nav';
-import Home from './components/home/home';
-import Events from './components/event/events';
-import Forum from './components/forum';
+import Nav from './components/nav/Nav';
+import Home from './components/home/Home';
+import Events from './components/event/Events';
+import Forum from './components/forum/Forum';
+import Register from './components/register/Register';
+import Login from './components/login/Login';
+import Profile from './components/profile/Profile';
+import Thread from './components/forum/Thread';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -11,6 +15,7 @@ function App() {
   const [formData, setFormData] = useState({
     name: '',
   });
+
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -51,6 +56,10 @@ function App() {
             }
           />
           <Route path='/forum' element={<Forum />} />
+          <Route path='/forum/:id' element={<Thread />} />
+          <Route path='/signup' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </main>
     </div>

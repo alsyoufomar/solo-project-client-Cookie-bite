@@ -64,13 +64,13 @@
 }
 
 .event__title a {
-  font-size: var(--fs-h3);
+  font-size: var(--fs-h4);
 }
 
 .event__date {
   font-size: var(--fs-info);
   font-weight: var(--fw-bold);
-  color: #f00;
+  color: rgb(225, 89, 89);
   margin: 0.5em 0;
 }
 

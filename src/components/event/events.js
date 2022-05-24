@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import EventCard from './eventCard';
+import EventCard from './EventCard';
 import DatePicker from '../DatePicker';
 import Dropdown from '../dropdown/Dropdown';
 import './style.css';
@@ -32,15 +32,17 @@ const Events = ({
   let path = `location=${location}&genre=${formData.name}${dateRange}${pagination}`;
 
   useEffect(() => {
+    console.log('getting data');
     fetch(`${url}?${path}`)
       .then((res) => res.json())
       .then((res) => {
+        console.log('my events', res);
         setDataCount(res.events[0]);
         setData((x) => {
           return [...new Set([...x, ...res.events[1]])];
         });
       });
-  }, [page, filter]);
+  }, [filter]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -74,12 +76,18 @@ const Events = ({
   function loadMore() {
     if (data.length < dataCount || page === 0) {
       setPage((x) => x + 1);
+      setFilter((x) => !x);
     }
     if (data.length >= dataCount) {
       setLoadMoreToggle(false);
     }
   }
 
+  function searchEvents() {
+    setData([]);
+    setPage(0);
+    setFilter((x) => !x);
+  }
   return (
     <>
       <div className='event-hero'>
@@ -116,7 +124,7 @@ const Events = ({
             />
           </li>
           <li
-            onClick={() => setFilter((x) => !x)}
+            onClick={searchEvents}
             className='filter-form__li filter-form__btn'>
             <button>search</button>
           </li>
@@ -127,9 +135,7 @@ const Events = ({
           return <EventCard key={card.id} card={card} />;
         })}
         {data.length >= 1 && (
-          <button
-            onClick={loadMore}
-            className={LoadMoreToggle ? 'loadMore' : 'loadMore-off'}>
+          <button onClick={loadMore} className='loadMore'>
             Load more results
           </button>
         )}

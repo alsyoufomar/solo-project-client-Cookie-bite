@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 const Nav = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('jwt');
+    console.log('logged out');
+  };
+
   return (
     <nav className={'nav'}>
       <ul className='nav__list'>
@@ -19,6 +24,20 @@ const Nav = () => {
         </li>
         <li>
           <Link to='/about'>About us</Link>
+        </li>
+      </ul>
+      <ul className='nav-login'>
+        <li className='nav-login-item nav__register'>
+          <Link to='/signup'>Sign up</Link>
+        </li>
+        <li className='nav-login-item nav__login'>
+          <Link to='/login'>Login</Link>
+        </li>
+        <li onClick={handleLogout} className='nav-login-item nav__logout'>
+          Logout
+        </li>
+        <li className='nav-login-item nav__profile'>
+          <Link to='/profile'>Profile</Link>
         </li>
       </ul>
     </nav>

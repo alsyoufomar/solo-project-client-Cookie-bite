@@ -1,7 +1,7 @@
 import { React } from 'react';
 import FilterBar from '../filterBar/Filterbar';
-import Featured from '../Featured';
-import ThisWeek from '../ThisWeek';
+import Featured from './Featured';
+import ThisWeek from './ThisWeek';
 
 import './style.css';
 
