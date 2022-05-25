@@ -30,6 +30,8 @@ const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem('jwt', res.token);
+        localStorage.setItem('isLoggedIn', true);
+        console.log('logged in');
         navigate('/');
       })
       .catch((err) => console.log(err));

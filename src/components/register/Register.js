@@ -3,7 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 const Register = () => {
-  const emptyUser = { username: '', password: '', email: '' };
+  const emptyUser = {
+    username: '',
+    password: '',
+    email: '',
+    firstname: '',
+    lastname: '',
+    avatarUrl: '',
+    bio: '',
+    phone: '',
+  };
   const [user, setUser] = useState({ emptyUser });
   const navigate = useNavigate();
 
@@ -41,11 +50,11 @@ const Register = () => {
     <div className='registration-page'>
       <form className='signup-form' onSubmit={handleRegister}>
         <input
-          type='text'
-          placeholder='Username'
+          type='email'
+          placeholder='Email'
           onChange={handleChange}
-          name='username'
-          value={user.username}
+          name='email'
+          value={user.email}
           autoComplete='off'
         />
         <input
@@ -57,11 +66,43 @@ const Register = () => {
           autoComplete='off'
         />
         <input
-          type='email'
-          placeholder='Email'
+          type='text'
+          placeholder='First name'
           onChange={handleChange}
-          name='email'
-          value={user.email}
+          name='firstname'
+          value={user.firstname}
+          autoComplete='off'
+        />
+        <input
+          type='text'
+          placeholder='Last name'
+          onChange={handleChange}
+          name='lastname'
+          value={user.lastname}
+          autoComplete='off'
+        />
+        <input
+          type='text'
+          placeholder='Avatar URL'
+          onChange={handleChange}
+          name='avatarUrl'
+          value={user.avatarUrl}
+          autoComplete='off'
+        />
+        <input
+          type='text'
+          placeholder='Bio'
+          onChange={handleChange}
+          name='bio'
+          value={user.bio}
+          autoComplete='off'
+        />
+        <input
+          type='text'
+          placeholder='Phone'
+          onChange={handleChange}
+          name='phone'
+          value={user.phone}
           autoComplete='off'
         />
         <button className='submit'>Sign up</button>

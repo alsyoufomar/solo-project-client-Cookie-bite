@@ -60,28 +60,30 @@ const Forum = () => {
 
   return (
     <div className='forum'>
-      <form onSubmit={handleCreateThread} className='thread-create'>
-        <input
-          type='text'
-          placeholder='Title'
-          onChange={handleChange}
-          name='title'
-          value={threadData.title}
-          className='thread-create__title'
-        />
-        <textarea
-          cols={10}
-          rows={5}
-          value={threadData.content}
-          placeholder={`What's wrong mate?`}
-          onChange={handleChange}
-          name='content'
-          className='thread-create__content'
-        />
-        <button className='add-thread'>
-          <i className='fa-solid fa-cookie-bite'></i>
-        </button>
-      </form>
+      {localStorage.getItem('isLoggedIn') && (
+        <form onSubmit={handleCreateThread} className='thread-create'>
+          <input
+            type='text'
+            placeholder='Title'
+            onChange={handleChange}
+            name='title'
+            value={threadData.title}
+            className='thread-create__title'
+          />
+          <textarea
+            cols={10}
+            rows={5}
+            value={threadData.content}
+            placeholder={`What's wrong mate?`}
+            onChange={handleChange}
+            name='content'
+            className='thread-create__content'
+          />
+          <button className='add-thread'>
+            <i className='fa-solid fa-cookie-bite'></i>
+          </button>
+        </form>
+      )}
       <i className='big-guy fa-solid fa-cookie-bite'></i>
       <ul className='thread-list'>
         {data.map((card) => {

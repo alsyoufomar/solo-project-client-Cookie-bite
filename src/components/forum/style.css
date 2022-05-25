@@ -102,11 +102,11 @@
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  border: 1px solid var(--clr-accent);
+  border: none;
   outline: none;
   color: var(--clr-accent);
   font-size: var(--fs-h3);
-  background-color: var(--clr-light);
+  background-color: transparent;
   transition: background 0.5s;
 }
 

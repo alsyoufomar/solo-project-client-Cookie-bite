@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function Thread() {
   const params = useParams();
@@ -66,18 +66,20 @@ function Thread() {
           );
         })}
       </ul>
-      <form onSubmit={handleCreateThread} className='reply-create'>
-        <input
-          type='text'
-          placeholder='Reply'
-          onChange={handleChange}
-          name='reply'
-          value={reply}
-        />
-        <button className='add-thread'>
-          <i className='fa-solid fa-cookie-bite'></i>
-        </button>
-      </form>
+      {localStorage.getItem('isLoggedIn') && (
+        <form onSubmit={handleCreateThread} className='reply-create'>
+          <input
+            type='text'
+            placeholder='Reply'
+            onChange={handleChange}
+            name='reply'
+            value={reply}
+          />
+          <button className='add-thread'>
+            <i className='fa-solid fa-cookie-bite'></i>
+          </button>
+        </form>
+      )}
     </div>
   );
 }

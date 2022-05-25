@@ -1,7 +1,51 @@
+import { useState, useEffect } from 'react';
 import './cardStyle.css';
 
 export default function EventCard(props) {
   const { card } = props;
+  const [saved, setSaved] = useState(null);
+
+  const [data, setData] = useState([]);
+
+  const url = `http://localhost:5000/event/bookmark`;
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+      },
+    };
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('bookmark data', res.foundBookmarks);
+        setData(res.foundBookmarks);
+      });
+  }, []);
+
+  const handleBookmark = async (eventId) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+      },
+    };
+
+    fetch(`http://localhost:5000/event/${eventId}/save`, options)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('add bookmark', res);
+        setSaved(!saved);
+        if (!res.error) {
+          // setData([res.data, ...data]);
+          // setThreadData(emptyThraed);
+        }
+      })
+      .catch((err) => console.log('the error message!', err.message));
+  };
+
   return (
     <li className='event'>
       <a href={card.url} rel='noreferrer' target='_blank'>
@@ -10,7 +54,7 @@ export default function EventCard(props) {
           <img src={card.image} alt={card.title} />
         </div>
       </a>
-      <div className='fav-list'>
+      <div onClick={() => handleBookmark(card.id)} className='fav-list'>
         <i className='fa-regular fa-bookmark'></i>
       </div>
       <ul className='event__info'>
