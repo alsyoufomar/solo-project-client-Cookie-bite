@@ -1,0 +1,12 @@
+.about {
+  padding: 4em 6.5em;
+  color: var(--clr-dark);
+  font-size: calc(var(--fs-body) + 0.5rem);
+  line-height: var(--line-height);
+  width: 70%;
+  min-height: 100vh;
+}
+
+.about p {
+  margin: 2em 0;
+}

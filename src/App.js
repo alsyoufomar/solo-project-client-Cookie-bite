@@ -8,6 +8,7 @@ import Login from './components/login/Login';
 import Profile from './components/profile/Profile';
 import Thread from './components/forum/Thread';
 import Bookmark from './components/bookmark/Bookmark';
+import About from './components/about/About';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -62,6 +63,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/bookmark' element={<Bookmark />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       </main>
     </div>

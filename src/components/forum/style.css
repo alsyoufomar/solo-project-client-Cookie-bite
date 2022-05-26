@@ -118,7 +118,8 @@
   position: fixed;
   top: 4rem;
   right: -8rem;
-  color: rgba(128, 128, 128, 0.607);
+  /* color: rgba(128, 128, 128, 0.607); */
+  color: var(--clr-accent);
   font-size: 35em;
   z-index: -1;
 }
