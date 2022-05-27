@@ -11,5 +11,5 @@ fun and exciting events in their area.
 $ git clone git@github.com:BAZBOT123/solo-project-diary-client.git && cd team-dev-client
 $ npm ci # install dependencies
 $ npm start
-# then point your browser to localhost:3000![Screenshot (542)](https://user-images.githubusercontent.com/59410037/170688302-5e0fe648-7334-4f87-9e54-d21163854074.png)
+# then point your browser to localhost:3000!
 
