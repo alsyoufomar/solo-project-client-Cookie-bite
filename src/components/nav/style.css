@@ -5,7 +5,7 @@
   box-shadow: 0 0.18641em 0.466025em rgba(0, 0, 0, 0.1);
   width: 100%;
   background: var(--clr-dark);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

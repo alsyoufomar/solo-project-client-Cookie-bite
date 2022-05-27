@@ -29,7 +29,7 @@ const Bookmark = ({}) => {
           return <EventCard key={card.id} card={card.event} />;
         })}
       </ul>
-      <i className='big-guy fa-solid fa-cookie-bite'></i>
+      <i className='nice-guy fa-solid fa-cookie-bite'></i>
     </div>
   );
 };

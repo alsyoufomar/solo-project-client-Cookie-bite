@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 
 import './style.css';
 
-const Nav = () => {
+const Nav = ({ dark, setDark }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const container = useRef(null);
@@ -91,6 +91,12 @@ const Nav = () => {
                 Logout
               </li>
             )}
+            <li
+              onClick={() => setDark(!dark)}
+              className='nav__dropdown-item nav__logout'>
+              {!dark && <i class='fa-solid fa-toggle-off'> off</i>}
+              {dark && <i class='fa-solid fa-toggle-on'> on</i>}
+            </li>
           </ul>
         )}
       </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
 import './style.css';
 
-const Forum = () => {
+const Forum = ({ dark }) => {
   const [data, setData] = useState([]);
   const emptyThraed = { title: '', content: '' };
   const [threadData, setThreadData] = useState(emptyThraed);
@@ -55,20 +55,21 @@ const Forum = () => {
     return formatDistance(postTime, currentTime, { addSuffix: true });
   }
 
-  console.log('my threads', data);
-  console.log('thread form', threadData);
-
   return (
-    <div className='forum'>
+    <div className={dark ? 'forum--dark' : 'forum'}>
       {localStorage.getItem('isLoggedIn') && (
-        <form onSubmit={handleCreateThread} className='thread-create'>
+        <form
+          onSubmit={handleCreateThread}
+          className={dark ? 'thread-create--dark' : 'thread-create'}>
           <input
             type='text'
             placeholder='Title'
             onChange={handleChange}
             name='title'
             value={threadData.title}
-            className='thread-create__title'
+            className={
+              dark ? 'thread-create__title--dark' : 'thread-create__title'
+            }
           />
           <textarea
             cols={10}
@@ -77,7 +78,9 @@ const Forum = () => {
             placeholder={`What's wrong mate?`}
             onChange={handleChange}
             name='content'
-            className='thread-create__content'
+            className={
+              dark ? 'thread-create__content--dark' : 'thread-create__content'
+            }
           />
           <button className='add-thread'>
             <i className='fa-solid fa-cookie-bite'></i>
@@ -89,12 +92,17 @@ const Forum = () => {
         {data.map((card) => {
           return (
             <Link to={`/forum/${card.id}`}>
-              <li key={card.id} card={card} className='thread-item'>
+              <li
+                key={card.id}
+                card={card}
+                className={dark ? 'thread-item--dark' : 'thread-item'}>
                 <div className='title-container'>
                   <h1>{card.title}</h1>
                 </div>
                 <div className='content-container'>
-                  <p className='user-thread'>{card.user.username}</p>
+                  <p className={dark ? 'user-thread--dark' : 'user-thread'}>
+                    {card.user.username}
+                  </p>
                   {card.reply && (
                     <p>
                       {card.reply.length > 0
@@ -102,7 +110,7 @@ const Forum = () => {
                         : 'No replies yet'}
                     </p>
                   )}
-                  <p className='date'>
+                  <p className={dark ? 'date--dark' : 'date'}>
                     {dateTimetoRelativeTime(card.createdAt)}
                   </p>
                 </div>

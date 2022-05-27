@@ -1,18 +1,20 @@
 import { useState, React } from 'react';
 import './style.css';
 
-const Dropdown = ({ setIsOpen, isOpen, location, setLocation }) => {
+const Dropdown = ({ setIsOpen, isOpen, location, setLocation, dark }) => {
   function handleDropdown(e) {
     setLocation(e.target.innerHTML);
   }
   return (
     <>
-      <button onClick={() => setIsOpen(!isOpen)} className='button'>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={dark ? 'button--dark' : 'button'}>
         <i className='event__icon fa-solid fa-location-dot'></i>
         {location}
       </button>
       {isOpen && (
-        <div className='dropdown'>
+        <div className={dark ? 'dropdown--dark' : 'dropdown'}>
           <ul name='location'>
             <li className='dropdown-item' onClick={handleDropdown}>
               London

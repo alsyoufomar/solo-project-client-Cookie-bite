@@ -8,7 +8,15 @@
   gap: 0.5em;
 }
 
-.event-hero {
+.main-event-container--dark {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--clr-dark-2);
+  z-index: -100;
+}
+
+.event-hero,
+.event-hero--dark {
   margin-left: auto;
   margin-right: 1em;
   margin-top: 4.5em;
@@ -25,8 +33,12 @@
   position: relative;
   box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.25);
 }
+.event-hero--dark {
+  box-shadow: 0px 10px 8px var(--clr-accent-2);
+}
 
-.filter-form {
+.filter-form,
+.filter-form--dark {
   width: 20em;
   height: 20em;
   background-color: #fff;
@@ -41,6 +53,11 @@
   justify-content: space-between;
 }
 
+.filter-form--dark {
+  background-color: var(--clr-dark);
+  box-shadow: 0px 10px 8px var(--clr-accent-2);
+}
+
 .filter-form__li {
   width: 100%;
   height: 100%;
@@ -51,14 +68,20 @@
   margin: 0.5em 0;
 }
 
-.filter-form__title {
+.filter-form__title,
+.filter-form__title--dark {
   font-size: var(--fs-h3);
   font-weight: var(--fw-bold);
   color: var(--clr-dark);
   margin-bottom: 0;
 }
 
-.filter-form__li .filter-form__name {
+.filter-form__title--dark {
+  color: var(--clr-light);
+}
+
+.filter-form__li .filter-form__name,
+.filter-form__li .filter-form__name--dark {
   width: 100%;
   height: 100%;
   outline: none;
@@ -67,7 +90,7 @@
 }
 
 .filter-form__li .button,
-.filter-form__btn button {
+.btn-btn {
   padding: 0 0.6em;
   width: 100%;
   height: 100%;
@@ -82,28 +105,57 @@
   color: var(--clr-details);
 }
 
-.filter-form__btn button {
+.btn-btn--dark,
+.filter-form__li .button--dark {
+  padding: 0 0.6em;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0.5em;
+  background-color: var(--clr-dark);
+  cursor: pointer;
+  align-items: center;
+  outline: 0;
+  display: flex;
+  justify-content: flex-start;
+  color: var(--clr-details);
+}
+
+.filter-form__btn .btn-btn,
+.filter-form__btn--dark .btn-btn--dark {
   justify-content: center;
   font-size: var(--fs-body);
 }
 
-.filter-form__btn button:hover {
+.filter-form__btn .btn-btn:hover,
+.filter-form__btn .btn-btn--dark :hover {
   background-color: var(--clr-accent);
 }
 
+.filter-form__name--dark {
+  color: var(--clr-light);
+  background-color: var(--clr-dark);
+}
+
 .filter-form__venue,
+.filter-form__venue--dark,
 .filter-form__location,
+.filter-form__location--dark,
 .filter-form__date,
-.filter-form__btn button {
+.filter-form__date--dark,
+.filter-form__btn .btn-btn,
+.filter-form__btn--dark .btn-btn--dark {
   border: 1px solid var(--clr-accent);
   border-radius: 0.5em;
 }
 
-.filter-form__location {
+.filter-form__location,
+.filter-form__location--dark {
   position: relative;
 }
 
-.filter-form__location .dropdown {
+.filter-form__location .dropdown,
+.filter-form__location--dark .dropdown {
   position: absolute;
   top: 88%;
   left: -1px;
@@ -113,11 +165,22 @@
   border-top: none;
 }
 
-.filter-form__date {
+.dropdown--dark {
+  background-color: var(--clr-dark);
+}
+
+.filter-form__location--dark .dropdown {
+  background-color: var(--clr-dark);
+  border: 1px solid var(--clr-accent);
+}
+
+.filter-form__date,
+.filter-form__date--dark {
   position: relative;
 }
 
-.filter-form__date .fa-calendar {
+.filter-form__date .fa-calendar,
+.filter-form__date--dark .fa-calendar {
   position: fixed;
   top: calc(50% - 15em);
   left: calc(50% - 15em);

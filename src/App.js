@@ -17,7 +17,7 @@ function App() {
   const [formData, setFormData] = useState({
     name: '',
   });
-
+  const [dark, setDark] = useState(false);
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -28,13 +28,14 @@ function App() {
 
   return (
     <div className='App'>
-      <Nav />
+      <Nav dark={dark} setDark={setDark} />
       <main>
         <Routes>
           <Route
             path='/'
             element={
               <Home
+                dark={dark}
                 setLocation={setLocation}
                 location={location}
                 setFormData={setFormData}
@@ -48,6 +49,7 @@ function App() {
             path='/events'
             element={
               <Events
+                dark={dark}
                 setLocation={setLocation}
                 location={location}
                 setFormData={setFormData}
@@ -57,13 +59,13 @@ function App() {
               />
             }
           />
-          <Route path='/forum' element={<Forum />} />
-          <Route path='/forum/:id' element={<Thread />} />
-          <Route path='/signup' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/bookmark' element={<Bookmark />} />
-          <Route path='/about' element={<About />} />
+          <Route path='/forum' element={<Forum dark={dark} />} />
+          <Route path='/forum/:id' element={<Thread dark={dark} />} />
+          <Route path='/signup' element={<Register dark={dark} />} />
+          <Route path='/login' element={<Login dark={dark} />} />
+          <Route path='/profile' element={<Profile dark={dark} />} />
+          <Route path='/bookmark' element={<Bookmark dark={dark} />} />
+          <Route path='/about' element={<About dark={dark} />} />
         </Routes>
       </main>
     </div>

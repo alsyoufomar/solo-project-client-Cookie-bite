@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-function Thread() {
+function Thread({ dark }) {
   const params = useParams();
   const [thread, setThread] = useState([]);
   const [reply, setReply] = useState('');
@@ -45,13 +45,11 @@ function Thread() {
     setReply(value);
   }
 
-  console.log('replies', replies);
-
   if (!replies) return <></>;
 
   return (
-    <div className='thread'>
-      <div className='main-thread'>
+    <div className={dark ? 'thread--dark' : 'thread'}>
+      <div className={dark ? 'main-thread--dark' : 'main-thread'}>
         <h1>{thread.title}</h1>
         <p>{thread.content}</p>
       </div>
@@ -59,7 +57,10 @@ function Thread() {
       <ul className='reply-list'>
         {replies.map((card) => {
           return (
-            <li key={card.id} card={card} className='reply-item'>
+            <li
+              key={card.id}
+              card={card}
+              className={dark ? 'reply-item--dark' : 'reply-item'}>
               <h2>{card.content}</h2>
               <p className='user-name'>{card.user.username}</p>
             </li>
@@ -67,7 +68,9 @@ function Thread() {
         })}
       </ul>
       {localStorage.getItem('isLoggedIn') && (
-        <form onSubmit={handleCreateThread} className='reply-create'>
+        <form
+          onSubmit={handleCreateThread}
+          className={dark ? 'reply-create--dark' : 'reply-create'}>
           <input
             type='text'
             placeholder='Reply'

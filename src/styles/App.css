@@ -52,9 +52,13 @@ p {
 
   --clr-light: #f5f5f5;
   --clr-dark: #20232a;
+  --clr-dark-2: #2d2f34;
   --clr-accent: #ffbc3d;
+  --clr-accent-2: #ffbb3d4b;
+  --clr-accent-3: #ffbb3d26;
   --clr-btn: #3d91ff;
   --clr-details: #6f7d8a;
+  --clr-details-dark: #aab2ba;
   --clr-titles: #636363;
   --clr-rating: #ffdd0c;
 

@@ -12,9 +12,10 @@ const Home = ({
   formData,
   setDate,
   date,
+  dark,
 }) => {
   return (
-    <div className='home'>
+    <div className={dark ? 'home--dark' : 'home'}>
       <div className='hero'>
         <div className='brand-title'>
           <i className='fa-solid fa-cookie-bite'></i>ookie bite
@@ -26,10 +27,11 @@ const Home = ({
           formData={formData}
           setDate={setDate}
           date={date}
+          dark={dark}
         />
       </div>
-      <Featured />
-      <ThisWeek />
+      <Featured dark={dark} />
+      <ThisWeek dark={dark} />
     </div>
   );
 };

@@ -78,7 +78,7 @@ const Profile = () => {
           <label htmlFor='bio'>bio</label>
           <textarea value={user.profile.bio} placeholder='Bio' name='bio' />
         </div>
-        <i className='big-guy fa-solid fa-cookie-bite'></i>
+        <i className='nice-guy fa-solid fa-cookie-bite'></i>
       </div>
     </div>
   );

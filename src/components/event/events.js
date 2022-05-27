@@ -11,6 +11,7 @@ const Events = ({
   formData,
   setDate,
   date,
+  dark,
 }) => {
   const [data, setData] = useState([]);
   const [dateToggle, setDateToggle] = useState(false);
@@ -32,8 +33,15 @@ const Events = ({
   let path = `location=${location}&genre=${formData.name}${dateRange}${pagination}`;
 
   useEffect(() => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+      },
+    };
     console.log('getting data');
-    fetch(`${url}?${path}`)
+    fetch(`${url}?${path}`, options)
       .then((res) => res.json())
       .then((res) => {
         console.log('my events', res);
@@ -88,35 +96,51 @@ const Events = ({
     setPage(0);
     setFilter((x) => !x);
   }
+
   return (
-    <>
-      <div className='event-hero'>
-        <ul className='filter-form'>
-          <li className='filter-form__li filter-form__title'>
+    <div
+      className={dark ? 'main-event-container--dark' : 'main-event-container'}>
+      <div className={dark ? 'event-hero--dark' : 'event-hero'}>
+        <ul className={dark ? 'filter-form--dark' : 'filter-form'}>
+          <li
+            className={`filter-form__li 
+              ${dark ? 'filter-form__title--dark' : 'filter-form__title'}`}>
             Looking for Events?
           </li>
-          <li className='filter-form__li filter-form__venue'>
+          <li
+            className={`filter-form__li 
+              ${dark ? 'filter-form__venue--dark' : 'filter-form__venue'}`}>
             <i className='event__icon fa-solid fa-magnifying-glass'></i>
             <input
               placeholder='artist, venue or keyword'
               autoComplete='off'
-              className='filter-form__name'
+              className={dark ? 'filter-form__name--dark' : 'filter-form__name'}
               id='name'
               value={formData.name}
               onChange={handleChange}
               name='name'
             />
           </li>
-          <li ref={container} className='filter-form__li filter-form__location'>
+          <li
+            ref={container}
+            className={`filter-form__li 
+              ${
+                dark ? 'filter-form__location--dark' : 'filter-form__location'
+              }`}>
             <Dropdown
+              dark={dark}
               location={location}
               setLocation={setLocation}
               setIsOpen={setIsOpen}
               isOpen={isOpen}
             />
           </li>
-          <li ref={dateContainer} className='filter-form__li filter-form__date'>
+          <li
+            ref={dateContainer}
+            className={`filter-form__li 
+              ${dark ? 'filter-form__date--dark' : 'filter-form__date'}`}>
             <DatePicker
+              dark={dark}
               date={date}
               setDate={setDate}
               dateToggle={dateToggle}
@@ -125,14 +149,17 @@ const Events = ({
           </li>
           <li
             onClick={searchEvents}
-            className='filter-form__li filter-form__btn'>
-            <button>search</button>
+            className={`filter-form__li 
+              ${dark ? 'filter-form__btn--dark' : 'filter-form__btn'}`}>
+            <button className={dark ? 'btn-btn--dark' : 'btn-btn'}>
+              search
+            </button>
           </li>
         </ul>
       </div>
       <ul className='events-cards'>
         {data.map((card) => {
-          return <EventCard key={card.id} card={card} />;
+          return <EventCard dark={dark} key={card.id} card={card} />;
         })}
         {data.length >= 1 && (
           <button onClick={loadMore} className='loadMore'>
@@ -140,7 +167,7 @@ const Events = ({
           </button>
         )}
       </ul>
-    </>
+    </div>
   );
 };
 

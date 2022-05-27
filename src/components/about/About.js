@@ -1,8 +1,8 @@
 import './style.css';
 
-function About() {
+function About({ dark }) {
   return (
-    <div className='about'>
+    <div className={dark ? 'about--dark' : 'about'}>
       <p>
         Cookie bite is a website that makes holiday planning easier for youth.
         The mission of cookie bite is to make people's lives easier by

@@ -1,3 +1,7 @@
+.home--dark {
+  background-color: var(--clr-dark-2);
+}
+
 .hero {
   background: linear-gradient(to top, #272727ba, rgba(91, 66, 66, 0.23)),
     url(../../../public/hero2.jpg) no-repeat center center;
@@ -39,17 +43,27 @@
   position: relative;
 }
 
-.featured-title {
+.featured-title,
+.featured-title--dark {
   font-size: var(--fs-h2);
   font-weight: var(--fw-reg);
   color: var(--clr-dark);
   margin: 5rem 0 0 2rem;
 }
 
-.featured-subtitle {
+.featured-title--dark {
+  color: var(--clr-light);
+}
+
+.featured-subtitle,
+.featured-subtitle--dark {
   color: var(--clr-titles);
   font-size: var(--fs-body);
   margin: 1.5rem 0 0 2rem;
+}
+
+.featured-subtitle--dark {
+  color: var(--clr-details-dark);
 }
 
 .featured-tag {
@@ -69,17 +83,27 @@
 
 /* Happening this week */
 
-.thisWeek-title {
+.thisWeek-title,
+.thisWeek-title--dark {
   font-size: var(--fs-h2);
   font-weight: var(--fw-reg);
   color: var(--clr-dark);
   margin: 4rem 0 0 2rem;
 }
 
-.thisWeek-subtitle {
+.thisWeek-title--dark {
+  color: var(--clr-light);
+}
+
+.thisWeek-subtitle,
+.thisWeek-subtitle--dark {
   color: var(--clr-titles);
   font-size: var(--fs-body);
   margin: 1.5rem 0 0 2rem;
+}
+
+.thisWeek-subtitle--dark {
+  color: var(--clr-details-dark);
 }
 
 .thisWeek {

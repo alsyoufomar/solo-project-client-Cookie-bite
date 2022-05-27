@@ -2,11 +2,18 @@ import { React, useState, useEffect } from 'react';
 import EventCard from '../event/EventCard';
 import './style.css';
 
-const Featured = () => {
+const Featured = ({ dark }) => {
   const [featured, setFeatured] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/event/featured')
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+      },
+    };
+    fetch('http://localhost:5000/event/featured', options)
       .then((res) => res.json())
       .then((res) => {
         setFeatured(res.events);
@@ -15,13 +22,15 @@ const Featured = () => {
 
   return (
     <>
-      <div className='featured-title'>Featured Events</div>
-      <div className='featured-subtitle'>
+      <div className={dark ? 'featured-title--dark' : 'featured-title'}>
+        Featured Events
+      </div>
+      <div className={dark ? 'featured-subtitle--dark' : 'featured-subtitle'}>
         In case you are confused, please let us introduce our featured events.
       </div>
       <ul className='featured'>
         {featured.map((card) => {
-          return <EventCard key={card.id} card={card} />;
+          return <EventCard dark={dark} key={card.id} card={card} />;
         })}
       </ul>
     </>
