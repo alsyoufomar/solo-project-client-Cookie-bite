@@ -8,7 +8,7 @@ fun and exciting events in their area.
 
 #Clone this repository
 
-- git clone git@github.com:BAZBOT123/solo-project-diary-client.git && cd team-dev-client
+- git clone git@github.com:alsyoufomar/solo-project-client-Cookie-bite.git && cd solo-project-client-Cookie-bite
 - npm ci # install dependencies
 - npm start
 - then point your browser to localhost:3000!
