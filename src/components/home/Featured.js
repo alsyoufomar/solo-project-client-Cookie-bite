@@ -20,6 +20,13 @@ const Featured = ({ dark }) => {
       });
   }, []);
 
+  function handleFlag(target) {
+    const updatedFeatured = featured.map((x) => {
+      return x.id === target.id ? { ...x, isBookmarked: !x.isBookmarked } : x;
+    });
+    setFeatured(updatedFeatured);
+  }
+
   return (
     <>
       <div className={dark ? 'featured-title--dark' : 'featured-title'}>
@@ -30,7 +37,14 @@ const Featured = ({ dark }) => {
       </div>
       <ul className='featured'>
         {featured.map((card) => {
-          return <EventCard dark={dark} key={card.id} card={card} />;
+          return (
+            <EventCard
+              handleFlag={handleFlag}
+              dark={dark}
+              key={card.id}
+              card={card}
+            />
+          );
         })}
       </ul>
     </>

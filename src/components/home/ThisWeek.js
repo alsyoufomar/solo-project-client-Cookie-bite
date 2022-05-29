@@ -5,14 +5,25 @@ import './style.css';
 const ThisWeek = ({ dark }) => {
   const [thisWeek, setThisWeek] = useState([]);
   const [page, setPage] = useState(0);
+  const [filter, setFilter] = useState(false);
+  const [dataCount, setDataCount] = useState(0);
   const perPage = 8;
   const pagination = `&page=${page}&perPage=${perPage}`;
 
-  function loadMore() {
-    setPage((x) => x + 1);
+  function handleFlag(target) {
+    const updatedThisWeek = thisWeek.map((x) => {
+      return x.id === target.id ? { ...x, isBookmarked: !x.isBookmarked } : x;
+    });
+    setThisWeek(updatedThisWeek);
   }
 
-  console.log('page', page);
+  function loadMore() {
+    if (thisWeek.length < dataCount || page === 0) {
+      setPage((x) => x + 1);
+      setFilter((x) => !x);
+    }
+  }
+
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -24,12 +35,12 @@ const ThisWeek = ({ dark }) => {
     fetch('http://localhost:5000/event/ThisWeek?' + pagination, options)
       .then((res) => res.json())
       .then((res) => {
-        console.log('this week', res);
+        setDataCount(res.thisWeekCount);
         setThisWeek((x) => {
-          return [...new Set([...x, ...res.events])];
+          return [...new Set([...x, ...res.thisWeekData])];
         });
       });
-  }, [page]);
+  }, [page, filter]);
 
   return (
     <>
@@ -41,7 +52,14 @@ const ThisWeek = ({ dark }) => {
       </div>
       <ul className='thisWeek'>
         {thisWeek.map((card) => {
-          return <EventCard dark={dark} key={card.id} card={card} />;
+          return (
+            <EventCard
+              handleFlag={handleFlag}
+              dark={dark}
+              key={card.id}
+              card={card}
+            />
+          );
         })}
         <button onClick={loadMore} className='loadMore'>
           Load more results

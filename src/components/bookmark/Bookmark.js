@@ -17,16 +17,36 @@ const Bookmark = ({}) => {
     fetch(url, options)
       .then((res) => res.json())
       .then((res) => {
-        console.log('bookmark data', res.foundBookmarks);
         setData(res.foundBookmarks);
       });
   }, []);
+
+  function handleFlag(target) {
+    const updatedBookmarks = data.map((x) => {
+      return x.event.id === target.id
+        ? {
+            ...x,
+            event: {
+              ...x.event,
+              isBookmarked: !x.event.isBookmarked,
+            },
+          }
+        : x;
+    });
+    setData(updatedBookmarks);
+  }
 
   return (
     <div className='bookmark'>
       <ul className='bookmark-cards'>
         {data.map((card) => {
-          return <EventCard key={card.id} card={card.event} />;
+          return (
+            <EventCard
+              handleFlag={handleFlag}
+              key={card.id}
+              card={card.event}
+            />
+          );
         })}
       </ul>
       <i className='nice-guy fa-solid fa-cookie-bite'></i>

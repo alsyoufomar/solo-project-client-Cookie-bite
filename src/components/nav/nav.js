@@ -94,8 +94,8 @@ const Nav = ({ dark, setDark }) => {
             <li
               onClick={() => setDark(!dark)}
               className='nav__dropdown-item nav__logout'>
-              {!dark && <i class='fa-solid fa-toggle-off'> off</i>}
-              {dark && <i class='fa-solid fa-toggle-on'> on</i>}
+              {!dark && <i className='fa-solid fa-toggle-off'> off</i>}
+              {dark && <i className='fa-solid fa-toggle-on'> on</i>}
             </li>
           </ul>
         )}

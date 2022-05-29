@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
 import './cardStyle.css';
 
 export default function EventCard(props) {
-  const { card, dark } = props;
-  const [saved, setSaved] = useState(null);
+  const { card, dark, handleFlag } = props;
 
   const handleBookmark = async (event) => {
+    handleFlag(event);
     if (!event.isBookmarked) {
       const options = {
         method: 'POST',
@@ -17,14 +16,6 @@ export default function EventCard(props) {
 
       fetch(`http://localhost:5000/event/${event.id}/save`, options)
         .then((res) => res.json())
-        .then((res) => {
-          console.log('add bookmark', res);
-          setSaved(true);
-          if (!res.error) {
-            // setData([res.data, ...data]);
-            // setThreadData(emptyThraed);
-          }
-        })
         .catch((err) => console.log('the error message!', err.message));
     } else {
       const options = {
@@ -37,14 +28,6 @@ export default function EventCard(props) {
 
       fetch(`http://localhost:5000/event/unsave/${event.bookmarkId}`, options)
         .then((res) => res.json())
-        .then((res) => {
-          console.log('add bookmark', res);
-          setSaved(false);
-          if (!res.error) {
-            // setData([res.data, ...data]);
-            // setThreadData(emptyThraed);
-          }
-        })
         .catch((err) => console.log('the error message!', err.message));
     }
   };
