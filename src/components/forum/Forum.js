@@ -28,7 +28,10 @@ const Forum = ({ dark }) => {
     };
 
     fetch('http://localhost:5000/thread', options)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw Error('could not fetch the data from the source');
+        return res.json();
+      })
       .then((res) => {
         console.log('create thread', res.data);
         if (!res.error) {
@@ -54,7 +57,7 @@ const Forum = ({ dark }) => {
     let currentTime = new Date();
     return formatDistance(postTime, currentTime, { addSuffix: true });
   }
-
+  console.log(data);
   return (
     <div className={dark ? 'forum--dark' : 'forum'}>
       {localStorage.getItem('isLoggedIn') && (
@@ -100,9 +103,11 @@ const Forum = ({ dark }) => {
                   <h1>{card.title}</h1>
                 </div>
                 <div className='content-container'>
-                  <p className={dark ? 'user-thread--dark' : 'user-thread'}>
-                    {card.user.username}
-                  </p>
+                  <Link to={`/profile/${card.userId}`}>
+                    <p className={dark ? 'user-thread--dark' : 'user-thread'}>
+                      Created by {card.user.username}
+                    </p>
+                  </Link>
                   {card.reply && (
                     <p>
                       {card.reply.length > 0

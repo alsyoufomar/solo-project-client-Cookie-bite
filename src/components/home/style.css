@@ -147,3 +147,22 @@
   background-color: var(--clr-accent);
 }
 
+footer {
+  width: 100%;
+  height: 4rem;
+  background-color: var(--clr-dark);
+}
+
+.footer__list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5em 2em;
+}
+
+.footer__list li {
+  margin: 0 0.5em;
+}
+

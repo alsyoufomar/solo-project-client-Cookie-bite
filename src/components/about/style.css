@@ -1,4 +1,5 @@
-.about {
+.about,
+.about--dark {
   padding: 4em 6.5em;
   color: var(--clr-dark);
   font-size: calc(var(--fs-body) + 0.5rem);
@@ -9,19 +10,16 @@
 }
 
 .about--dark {
-  padding: 4em 6.5em;
-  font-size: calc(var(--fs-body) + 0.5rem);
-  line-height: var(--line-height);
-  width: 100%;
-  min-height: 100vh;
   color: var(--clr-light);
   background-color: var(--clr-dark-2);
-  margin: 0;
-  z-index: -2;
 }
 
 .about--dark p,
 .about p {
   margin: 2em 0;
   width: 70%;
+  position: relative;
+}
+#paragraph {
+  z-index: 5;
 }

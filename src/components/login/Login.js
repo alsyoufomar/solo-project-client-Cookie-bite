@@ -5,6 +5,8 @@ import './style.css';
 const Login = () => {
   const emptyUser = { username: '', password: '' };
   const [user, setUser] = useState({ emptyUser });
+  const [errMessage, setErrMessage] = useState('');
+  const [popup, setPopup] = useState(false);
   const navigate = useNavigate();
 
   function handleChange(event) {
@@ -27,18 +29,36 @@ const Login = () => {
     };
 
     fetch('http://localhost:5000/user/login', options)
-      .then((res) => res.json())
       .then((res) => {
-        localStorage.setItem('jwt', res.token);
-        localStorage.setItem('isLoggedIn', true);
-        console.log('logged in');
-        navigate('/');
+        if (!res.ok) throw Error('could not fetch the data from the source');
+        return res.json();
+      })
+      .then((res) => {
+        if (!res.ok && res.error) {
+          setErrMessage(res.error);
+          setPopup(true);
+        } else {
+          localStorage.setItem('jwt', res.token);
+          localStorage.setItem('isLoggedIn', true);
+          console.log('logged in');
+          navigate('/');
+        }
       })
       .catch((err) => console.log(err));
   };
 
   return (
     <div className='login-page'>
+      {popup && (
+        <div className='err__popup'>
+          <div onClick={() => setPopup(false)} className='err__exit'>
+            X
+          </div>
+          <i class='err__triangle fa-solid fa-triangle-exclamation'></i>
+          <br />
+          {errMessage}
+        </div>
+      )}
       <form className='login-form' onSubmit={handleLogin}>
         <input
           type='text'

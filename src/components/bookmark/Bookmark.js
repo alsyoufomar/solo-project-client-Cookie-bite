@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import EventCard from '../event/EventCard';
 import './style.css';
 
-const Bookmark = ({}) => {
+const Bookmark = ({ dark }) => {
   const [data, setData] = useState([]);
 
   const url = `http://localhost:5000/event/bookmark`;
@@ -15,7 +15,10 @@ const Bookmark = ({}) => {
       },
     };
     fetch(url, options)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw Error('could not fetch the data from the source');
+        return res.json();
+      })
       .then((res) => {
         setData(res.foundBookmarks);
       });
@@ -36,12 +39,15 @@ const Bookmark = ({}) => {
     setData(updatedBookmarks);
   }
 
+  if (!data) return <></>;
+
   return (
-    <div className='bookmark'>
+    <div className={dark ? 'bookmark--dark' : 'bookmark'}>
       <ul className='bookmark-cards'>
         {data.map((card) => {
           return (
             <EventCard
+              dark={dark}
               handleFlag={handleFlag}
               key={card.id}
               card={card.event}
@@ -49,7 +55,7 @@ const Bookmark = ({}) => {
           );
         })}
       </ul>
-      <i className='nice-guy fa-solid fa-cookie-bite'></i>
+      <i className='big-guy fa-solid fa-cookie-bite'></i>
     </div>
   );
 };

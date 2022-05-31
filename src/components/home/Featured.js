@@ -14,7 +14,10 @@ const Featured = ({ dark }) => {
       },
     };
     fetch('http://localhost:5000/event/featured', options)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw Error('could not fetch the data from the source');
+        return res.json();
+      })
       .then((res) => {
         setFeatured(res.events);
       });
@@ -26,6 +29,8 @@ const Featured = ({ dark }) => {
     });
     setFeatured(updatedFeatured);
   }
+
+  if (!featured) return <></>;
 
   return (
     <>

@@ -6,7 +6,12 @@
   gap: 0.5em;
 }
 
-.bookmark {
+.bookmark,
+.bookmark--dark {
   width: 100%;
-  height: auto;
+  min-height: 100vh;
+}
+
+.bookmark--dark {
+  background-color: var(--clr-dark-2);
 }

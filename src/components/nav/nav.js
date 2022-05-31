@@ -54,7 +54,9 @@ const Nav = ({ dark, setDark }) => {
           <i className='fa-solid fa-caret-down'></i>
         </div>
         {isOpen && (
-          <ul ref={container} className='nav__dropdown'>
+          <ul
+            ref={container}
+            className={dark ? 'nav__dropdown--dark' : 'nav__dropdown'}>
             {!localStorage.getItem('isLoggedIn') && (
               <Link to='/signup'>
                 <li className='nav__dropdown-item nav__register'>Sign up</li>
@@ -94,8 +96,8 @@ const Nav = ({ dark, setDark }) => {
             <li
               onClick={() => setDark(!dark)}
               className='nav__dropdown-item nav__logout'>
-              {!dark && <i className='fa-solid fa-toggle-off'> off</i>}
-              {dark && <i className='fa-solid fa-toggle-on'> on</i>}
+              {!dark && <i className='fa-solid fa-toggle-off'> </i>}
+              {dark && <i className='fa-solid fa-toggle-on'></i>} Dark mode
             </li>
           </ul>
         )}

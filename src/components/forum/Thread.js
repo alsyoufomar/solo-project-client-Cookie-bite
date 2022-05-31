@@ -9,11 +9,15 @@ function Thread({ dark }) {
 
   useEffect(() => {
     fetch(`http://localhost:5000/replies/${params.id}`)
-      .then((res) => res.json())
       .then((res) => {
-        console.log('the thread', res);
-        setThread(res.foundThread);
-        setReplies(res.foundThread.reply);
+        if (!res.ok) throw Error('could not fetch the data from the source');
+        return res.json();
+      })
+      .then((res) => {
+        if (!res.error) {
+          setThread(res.foundThread);
+          setReplies(res.foundThread.reply);
+        }
       });
   }, []);
 
@@ -29,7 +33,10 @@ function Thread({ dark }) {
     };
 
     fetch(`http://localhost:5000/reply/${params.id}`, options)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw Error('could not fetch the data from the source');
+        return res.json();
+      })
       .then((res) => {
         console.log('created reply', res.createdReply);
         if (!res.error) {
@@ -46,7 +53,7 @@ function Thread({ dark }) {
   }
 
   if (!replies) return <></>;
-
+  console.log(thread);
   return (
     <div className={dark ? 'thread--dark' : 'thread'}>
       <div className={dark ? 'main-thread--dark' : 'main-thread'}>

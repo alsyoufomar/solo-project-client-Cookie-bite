@@ -2,6 +2,7 @@ import { React } from 'react';
 import FilterBar from '../filterBar/Filterbar';
 import Featured from './Featured';
 import ThisWeek from './ThisWeek';
+import { Link } from 'react-router-dom';
 
 import './style.css';
 
@@ -32,6 +33,19 @@ const Home = ({
       </div>
       <Featured dark={dark} />
       <ThisWeek dark={dark} />
+      <footer>
+        <ul className='footer__list'>
+          <li>
+            <i class='fa-regular fa-copyright'></i> 2022 Cookie bite
+          </li>
+          <li>
+            <Link to='/forum'>Forum</Link>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+        </ul>
+      </footer>
     </div>
   );
 };

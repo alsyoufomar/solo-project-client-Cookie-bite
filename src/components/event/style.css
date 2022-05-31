@@ -15,11 +15,16 @@
   z-index: -100;
 }
 
+.main-event-container--dark,
+.main-event-container {
+  padding-top: 1em;
+}
+
 .event-hero,
 .event-hero--dark {
   margin-left: auto;
-  margin-right: 1em;
-  margin-top: 4.5em;
+  margin-right: 1.5em;
+  margin-top: 4em;
   width: 80%;
   background: linear-gradient(to top, #272727ba, rgba(91, 66, 66, 0.23)),
     url(../../../public/eventsHero.jpg) no-repeat center center;

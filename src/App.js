@@ -5,7 +5,9 @@ import Events from './components/event/Events';
 import Forum from './components/forum/Forum';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
-import Profile from './components/profile/Profile';
+import ViewProfile from './components/profile/ViewProfile';
+import EditProfile from './components/profile/EditProfile';
+import MyProfile from './components/profile/MyProfile';
 import Thread from './components/forum/Thread';
 import Bookmark from './components/bookmark/Bookmark';
 import About from './components/about/About';
@@ -63,7 +65,9 @@ function App() {
           <Route path='/forum/:id' element={<Thread dark={dark} />} />
           <Route path='/signup' element={<Register dark={dark} />} />
           <Route path='/login' element={<Login dark={dark} />} />
-          <Route path='/profile' element={<Profile dark={dark} />} />
+          <Route path='/profile' element={<MyProfile dark={dark} />} />
+          <Route path='/profile/:id' element={<ViewProfile dark={dark} />} />
+          <Route path='/profile/edit' element={<EditProfile dark={dark} />} />
           <Route path='/bookmark' element={<Bookmark dark={dark} />} />
           <Route path='/about' element={<About dark={dark} />} />
         </Routes>

@@ -5,15 +5,15 @@ import './style.css';
 const Register = () => {
   const emptyUser = {
     username: '',
-    password: '',
     email: '',
     firstname: '',
     lastname: '',
-    avatarUrl: '',
-    bio: '',
-    phone: '',
+    password: '',
+    confirm_password: '',
   };
-  const [user, setUser] = useState({ emptyUser });
+  const [user, setUser] = useState(emptyUser);
+  const [errMessage, setErrMessage] = useState('');
+  const [popup, setPopup] = useState(false);
   const navigate = useNavigate();
 
   function handleChange(event) {
@@ -39,7 +39,18 @@ const Register = () => {
     fetch(`${url}/user/register`, options)
       .then((res) => res.json())
       .then((res) => {
-        navigate('/login');
+        if (!res.ok && res.error) {
+          if (res.error === '"confirm_password" must be [ref:password]') {
+            console.log('Confirm the password please');
+            setErrMessage('Confirm the password please');
+            setPopup(true);
+          } else {
+            setErrMessage(res.error);
+            setPopup(true);
+          }
+        } else {
+          navigate('/login');
+        }
       })
       .catch((e) => {
         console.log('error', e);
@@ -48,21 +59,31 @@ const Register = () => {
 
   return (
     <div className='registration-page'>
+      {popup && (
+        <div className='err__popup'>
+          <div onClick={() => setPopup(false)} className='err__exit'>
+            X
+          </div>
+          <i class='err__triangle fa-solid fa-triangle-exclamation'></i>
+          <br />
+          {errMessage}
+        </div>
+      )}
       <form className='signup-form' onSubmit={handleRegister}>
+        <input
+          type='text'
+          placeholder='Username'
+          onChange={handleChange}
+          name='username'
+          value={user.username}
+          autoComplete='off'
+        />
         <input
           type='email'
           placeholder='Email'
           onChange={handleChange}
           name='email'
           value={user.email}
-          autoComplete='off'
-        />
-        <input
-          type='password'
-          placeholder='Password'
-          onChange={handleChange}
-          name='password'
-          value={user.password}
           autoComplete='off'
         />
         <input
@@ -82,27 +103,19 @@ const Register = () => {
           autoComplete='off'
         />
         <input
-          type='text'
-          placeholder='Avatar URL'
+          type='password'
+          placeholder='Password'
           onChange={handleChange}
-          name='avatarUrl'
-          value={user.avatarUrl}
+          name='password'
+          value={user.password}
           autoComplete='off'
         />
         <input
-          type='text'
-          placeholder='Bio'
+          type='password'
+          placeholder='Confirm password'
           onChange={handleChange}
-          name='bio'
-          value={user.bio}
-          autoComplete='off'
-        />
-        <input
-          type='text'
-          placeholder='Phone'
-          onChange={handleChange}
-          name='phone'
-          value={user.phone}
+          name='confirm_password'
+          value={user.confirm_password}
           autoComplete='off'
         />
         <button className='submit'>Sign up</button>

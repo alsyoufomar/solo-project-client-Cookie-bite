@@ -35,7 +35,10 @@ const Events = ({
       },
     };
     fetch(`${url}?${path}`, options)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw Error('could not fetch the data from the source');
+        return res.json();
+      })
       .then((res) => {
         setDataCount(res.eventsCount);
         setData((x) => {
@@ -57,6 +60,8 @@ const Events = ({
       setFilter((x) => !x);
     }
   }
+
+  if (!data) return <></>;
 
   return (
     <div
