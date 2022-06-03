@@ -4,10 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 const EditProfile = ({ dark }) => {
-  const [user, setUser] = useState({
-    avatarUrl:
-      'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png',
-  });
+  const [user, setUser] = useState({});
   const [errMessage, setErrMessage] = useState('');
   const [popup, setPopup] = useState(false);
   const navigate = useNavigate();

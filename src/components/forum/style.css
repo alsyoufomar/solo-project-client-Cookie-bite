@@ -1,6 +1,7 @@
 /* forum styling */
 .forum {
   padding: 6.5em 6.5em;
+  min-height: 100vh;
 }
 
 a {
@@ -8,9 +9,14 @@ a {
   color: var(--clr-dark);
 }
 
+.forum p {
+  z-index: 5;
+}
+
 .forum--dark {
   padding: 6.5em 6.5em;
   background-color: var(--clr-dark-2);
+  min-height: 100vh;
 }
 
 /* thread form */
@@ -66,6 +72,10 @@ a {
 }
 
 .user-thread--dark {
+  color: var(--clr-light);
+}
+
+.user-name--dark {
   color: var(--clr-light);
 }
 
@@ -145,9 +155,9 @@ a {
 .add-thread {
   position: absolute;
   bottom: 2rem;
-  right: 3rem;
-  width: 3rem;
-  height: 3rem;
+  right: var(--btn);
+  width: var(--btn);
+  height: var(--btn);
   border-radius: 50%;
   border: none;
   outline: none;
@@ -175,6 +185,7 @@ a {
 .thread,
 .thread--dark {
   padding: 6.5em 6.5em;
+  min-height: 100%;
 }
 
 .thread--dark {
@@ -218,6 +229,7 @@ a {
 .main-thread--dark p {
   color: var(--clr-light);
   font-size: calc(var(--fs-body) + 0.5rem);
+  z-index: 5;
 }
 
 .reply-item,
@@ -288,5 +300,30 @@ a {
   right: -3.9rem;
   top: 0.5rem;
   z-index: 5;
-  border: 1px solid var(--clr-details);
+}
+
+@media only screen and (max-width: 750px) {
+  .thread-create,
+  .thread-create--dark {
+    width: 100%;
+  }
+
+  .thread-list,
+  .reply-list {
+    width: 100%;
+  }
+
+  .main-thread,
+  .main-thread--dark {
+    width: 100%;
+  }
+
+  .reply-create,
+  .reply-create--dark {
+    width: calc(100% - 4.5em);
+  }
+
+  .add-thread {
+    right: calc(var(--btn) - 1em);
+  }
 }

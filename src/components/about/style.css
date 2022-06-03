@@ -2,7 +2,7 @@
 .about--dark {
   padding: 4em 6.5em;
   color: var(--clr-dark);
-  font-size: calc(var(--fs-body) + 0.5rem);
+  font-size: calc(var(--fs-body) + 0.5em);
   line-height: var(--line-height);
   width: 100%;
   min-height: 100vh;
@@ -22,4 +22,28 @@
 }
 #paragraph {
   z-index: 5;
+}
+
+@media only screen and (max-width: 800px) {
+  .about--dark p,
+  .about p {
+    width: 100%;
+  }
+  .about,
+  .about--dark {
+    padding: 4em 4em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .about,
+  .about--dark {
+    padding: 4em 2em;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .about,
+  .about--dark {
+    padding: 2em 2em;
+  }
 }

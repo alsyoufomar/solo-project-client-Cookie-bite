@@ -2,15 +2,16 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 80%;
-  height: 3.5em;
-  margin: 0;
+  width: var(--fb-l);
+  height: var(--sb-w);
+  margin-bottom: 8rem;
   padding: 0 1.7em;
   color: var(--clr-titles);
   position: absolute;
 }
 
-.filter-bar__li {
+.filter-bar__li,
+.filter-bar__li--dark {
   height: 100%;
   width: 100%;
   display: flex;
@@ -18,18 +19,22 @@
   align-items: center;
   transition: filter 300ms;
   background-color: var(--clr-light);
-  border: 0.2em solid var(--clr-dark);
+  border: 1px solid var(--clr-accent);
   font-size: var(--fs-placeholder);
 }
 
-.filter-bar__li:hover {
-  filter: brightness(90%);
+.filter-bar__li--dark {
+  background-color: var(--clr-dark);
+}
+
+.filter-bar__li:hover,
+.filter-bar__li--dark:hover {
   cursor: pointer;
 }
 
 .filter-bar__search-btn {
   width: 14em;
-  border-right: 0.2em solid var(--clr-dark);
+  border-right: 1px solid var(--clr-accent);
   border-left: none;
   border-radius: 0 5em 5em 0;
   display: flex;
@@ -51,18 +56,6 @@
   margin-top: 0;
   width: 80%;
   border-left: none;
-  position: relative;
-}
-
-.fa-calendar {
-  position: absolute;
-  top: -15em;
-  right: 20em;
-  box-shadow: 0px 10em 8em rgba(0, 0, 0, 0.5);
-}
-
-.fa-calendar::before {
-  display: none;
 }
 
 .filter-bar__location {
@@ -80,14 +73,36 @@
 }
 
 .filter-bar__name,
-.filter-bar__location select {
+.filter-bar__name--dark {
   width: 100%;
   height: 100%;
   outline: none;
   border: none;
   background-color: var(--clr-light);
+  font-size: var(--fs-body);
 }
 
-.filter-bar__name::-webkit-input-placeholder {
+.filter-bar__name--dark {
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+}
+
+.filter-bar__name::-webkit-input-placeholder,
+.filter-bar__name--dark::-webkit-input-placeholder {
   font-size: var(--fs-placeholder);
+}
+
+.search-btn {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fs-placeholder);
+}
+
+@media only screen and (max-width: 500px) {
+  .filter-bar {
+    display: none;
+  }
 }

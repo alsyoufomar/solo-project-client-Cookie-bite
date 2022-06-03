@@ -7,7 +7,7 @@ const DatePicker = ({ setDateToggle, dateToggle, date, setDate, dark }) => {
 
   function dateToStr(str) {
     const updated = str.toString().substring(4, 15).split(' ');
-    return `${updated[0]} ${updated[1]}, ${updated[2]} `;
+    return `${updated[0]} ${updated[1]}`;
   }
 
   return (

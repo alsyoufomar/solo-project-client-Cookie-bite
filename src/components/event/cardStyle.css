@@ -6,11 +6,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 20px;
   font-size: var(--fs-details);
   color: var(--clr-details);
-  height: 35em;
-  width: 22em;
+  height: var(--card-h);
+  width: var(--card-w);
   background-color: #fff;
   position: relative;
   transition: box-shadow 0.5s;
@@ -52,13 +51,14 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+  width: var(--btn);
+  height: var(--btn);
   border: 1px solid var(--clr-title);
   color: #000;
   font-size: var(--fs-body);
   font-weight: var(--fw-bold);
   background-color: var(--clr-light);
+  z-index: 10;
 }
 
 .fav-list:hover {
@@ -124,4 +124,40 @@
 
 .event__info i {
   margin-right: 0.3em;
+}
+
+@media only screen and (max-width: 600px) {
+  .event__image > img {
+    height: 11rem;
+  }
+
+  .fav-list {
+    position: absolute;
+    top: 10rem;
+    right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .event__image > img {
+    height: 15em;
+  }
+
+  .fav-list {
+    position: absolute;
+    top: 10.5em;
+    right: 1em;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .event__image > img {
+    height: 15em;
+  }
+
+  .fav-list {
+    position: absolute;
+    top: 10em;
+    right: 1em;
+  }
 }

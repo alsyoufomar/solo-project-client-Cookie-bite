@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function Thread({ dark }) {
   const params = useParams();
@@ -53,7 +53,7 @@ function Thread({ dark }) {
   }
 
   if (!replies) return <></>;
-  console.log(thread);
+  console.log(replies);
   return (
     <div className={dark ? 'thread--dark' : 'thread'}>
       <div className={dark ? 'main-thread--dark' : 'main-thread'}>
@@ -69,7 +69,11 @@ function Thread({ dark }) {
               card={card}
               className={dark ? 'reply-item--dark' : 'reply-item'}>
               <h2>{card.content}</h2>
-              <p className='user-name'>{card.user.username}</p>
+              <Link to={`/profile/${card.userId}`}>
+                <p className={dark ? 'user-name--dark' : 'user-name'}>
+                  {card.user.username}
+                </p>
+              </Link>
             </li>
           );
         })}

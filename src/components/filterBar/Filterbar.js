@@ -11,6 +11,7 @@ const FilterBar = ({
   formData,
   setDate,
   date,
+  dark,
 }) => {
   const [dateToggle, setDateToggle] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -24,16 +25,6 @@ const FilterBar = ({
     };
   }, [isOpen, dateToggle]);
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: value,
-      };
-    });
-  }
-
   const handleClickOutside = (event) => {
     if (container.current && !container.current.contains(event.target)) {
       setIsOpen(false);
@@ -46,14 +37,27 @@ const FilterBar = ({
     }
   };
 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: value,
+      };
+    });
+  }
+
   return (
     <ul className='filter-bar'>
-      <li className='filter-bar__li filter-bar__venue'>
+      <li
+        className={`${
+          dark ? 'filter-bar__li--dark' : 'filter-bar__li'
+        } filter-bar__venue`}>
         <i className='event__icon fa-solid fa-magnifying-glass'></i>
         <input
           placeholder='artist, venue or keyword'
           autoComplete='off'
-          className='filter-bar__name'
+          className={dark ? 'filter-bar__name--dark' : 'filter-bar__name'}
           id='name'
           value={formData.name}
           onChange={handleChange}
@@ -62,24 +66,37 @@ const FilterBar = ({
       </li>
       <li
         ref={container}
-        className='dropdown-container filter-bar__li filter-bar__location'>
+        className={`${
+          dark ? 'filter-bar__li--dark' : 'filter-bar__li'
+        } filter-bar__location dropdown-container`}>
         <Dropdown
           location={location}
           setLocation={setLocation}
           setIsOpen={setIsOpen}
           isOpen={isOpen}
+          dark={dark}
         />
       </li>
-      <li ref={dateContainer} className='filter-bar__li filter-bar__date'>
+      <li
+        ref={dateContainer}
+        className={`${
+          dark ? 'filter-bar__li--dark' : 'filter-bar__li'
+        } filter-bar__date`}>
         <DatePicker
+          dark={dark}
           date={date}
           setDate={setDate}
           dateToggle={dateToggle}
           setDateToggle={setDateToggle}
         />
       </li>
-      <li className='filter-bar__li filter-bar__search-btn'>
-        <Link to='/events'>Search</Link>
+      <li
+        className={`${
+          dark ? 'filter-bar__li--dark' : 'filter-bar__li'
+        } filter-bar__search-btn`}>
+        <Link className='search-btn' to='/events'>
+          Search
+        </Link>
       </li>
     </ul>
   );

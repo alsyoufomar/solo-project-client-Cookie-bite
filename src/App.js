@@ -1,5 +1,6 @@
 import './styles/App.css';
 import Nav from './components/nav/Nav';
+import PhoneNav from './components/nav/PhoneNav';
 import Home from './components/home/Home';
 import Events from './components/event/Events';
 import Forum from './components/forum/Forum';
@@ -72,6 +73,7 @@ function App() {
           <Route path='/about' element={<About dark={dark} />} />
         </Routes>
       </main>
+      <PhoneNav dark={dark} setDark={setDark} />
     </div>
   );
 }

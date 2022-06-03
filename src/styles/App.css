@@ -65,6 +65,11 @@ p {
 
   --speed: 250ms;
   --line-height: 1.4;
+  --sb-w: 3.5em;
+  --fb-l: 80%;
+  --card-h: 35em;
+  --card-w: 22em;
+  --btn: 3rem;
 }
 
 /* General styles */
@@ -77,5 +82,108 @@ body {
   font-weight: var(--fw-reg);
   line-height: 0.8125em;
   min-height: 100vh;
+}
+
+@media only screen and (max-width: 750px) {
+  :root {
+    --fs-h1: 4rem;
+    --fs-h2: 2rem;
+    --fs-h3: 1.3rem;
+    --fs-h4: 1rem;
+    --fs-body: 0.9rem;
+    --fs-intro: 2rem;
+    --fs-details: 0.7rem;
+    --fs-info: 0.7rem;
+    --fs-placeholder: 0.7rem;
+    --fs-bigguy: 32rem;
+
+    --line-height: 1.1;
+    --sb-w: 2.5rem;
+    --card-h: 31em;
+    --card-w: 19em;
+    --btn: 2.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  :root {
+    --fs-h1: 3rem;
+    --fs-h2: 1.5rem;
+    --fs-h3: 1rem;
+    --fs-h4: 0.8rem;
+    --fs-body: 0.7rem;
+    --fs-intro: 2rem;
+    --fs-details: 0.6rem;
+    --fs-info: 0.6rem;
+    --fs-placeholder: 0.6rem;
+    --fs-bigguy: 29rem;
+
+    --line-height: 1.1;
+    --sb-w: 2rem;
+    --card-h: 31em;
+    --card-w: 17em;
+    --btn: 2rem;
+    --fb-l: 85%;
+  }
+}
+
+@media only screen and (max-width: 455px) {
+  :root {
+    --fs-h1: 3rem;
+    --fs-h2: 1.5rem;
+    --fs-h3: 1rem;
+    --fs-h4: 0.8rem;
+    --fs-body: 0.7rem;
+    --fs-intro: 2rem;
+    --fs-details: 0.6rem;
+    --fs-info: 0.6rem;
+    --fs-placeholder: 0.6rem;
+    --fs-bigguy: 29rem;
+
+    --line-height: 1;
+    --sb-w: 2rem;
+    --card-h: 31em;
+    --card-w: 17em;
+    --fb-l: 95%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  :root {
+    --fs-h1: 2.5rem;
+    --fs-h2: 1rem;
+    --fs-h3: 0.9rem;
+    --fs-h4: 0.7rem;
+    --fs-body: 0.5rem;
+    --fs-intro: 2rem;
+    --fs-details: 0.4rem;
+    --fs-info: 0.4rem;
+    --fs-placeholder: 0.4rem;
+    --fs-bigguy: 24rem;
+
+    --line-height: 1;
+    --card-h: 31em;
+    --card-w: 21em;
+    --btn: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  :root {
+    --fs-h1: 2rem;
+    --fs-h2: 0.9rem;
+    --fs-h3: 0.7rem;
+    --fs-h4: 0.5rem;
+    --fs-body: 0.5rem;
+    --fs-intro: 2rem;
+    --fs-details: 0.3rem;
+    --fs-info: 0.3rem;
+    --fs-placeholder: 0.3rem;
+    --fs-bigguy: 20rem;
+
+    --line-height: 1;
+    --card-h: 31em;
+    --card-w: 18em;
+    --btn: 1rem;
+  }
 }
 
