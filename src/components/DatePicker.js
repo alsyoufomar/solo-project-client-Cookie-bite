@@ -1,4 +1,4 @@
-import { useState, React } from 'react';
+import { React } from 'react';
 import { DateRange } from 'react-date-range';
 
 const DatePicker = ({ setDateToggle, dateToggle, date, setDate, dark }) => {

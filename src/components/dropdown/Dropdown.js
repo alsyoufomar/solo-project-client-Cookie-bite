@@ -1,4 +1,4 @@
-import { useState, React } from 'react';
+import { React } from 'react';
 import './style.css';
 
 const Dropdown = ({ setIsOpen, isOpen, location, setLocation, dark }) => {
