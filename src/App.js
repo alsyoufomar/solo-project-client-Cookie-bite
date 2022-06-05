@@ -1,3 +1,5 @@
+import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import './styles/App.css';
 import Nav from './components/nav/Nav';
 import PhoneNav from './components/nav/PhoneNav';
@@ -12,8 +14,6 @@ import MyProfile from './components/profile/MyProfile';
 import Thread from './components/forum/Thread';
 import Bookmark from './components/bookmark/Bookmark';
 import About from './components/about/About';
-import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
 
 function App() {
   const [location, setLocation] = useState('Location');
