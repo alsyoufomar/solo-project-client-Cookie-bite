@@ -1,11 +1,12 @@
 import { useState, useEffect, React } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const MyProfile = ({ dark }) => {
   const [user, setUser] = useState({});
 
-  const url = 'http://localhost:5000/user/profile';
+  const url = `${host}/user/profile`;
 
   useEffect(() => {
     const options = {

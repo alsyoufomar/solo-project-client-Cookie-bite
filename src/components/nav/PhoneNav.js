@@ -33,29 +33,29 @@ const PhoneNav = ({ dark, setDark }) => {
       <ul className='nav__list--phone'>
         <li className='dropdown-icon-container'>
           <Link to='/'>
-            <i class='fa-solid fa-house'></i>
+            <i className='fa-solid fa-house'></i>
           </Link>
         </li>
         <li className='dropdown-icon-container'>
           <Link to='/events'>
-            <i class='fa-solid fa-cookie-bite'></i>
+            <i className='fa-solid fa-cookie-bite'></i>
           </Link>
         </li>
         <li className='dropdown-icon-container'>
           <Link to='/forum'>
-            <i class='fa-solid fa-message'></i>
+            <i className='fa-solid fa-message'></i>
           </Link>
         </li>
         <li className='dropdown-icon-container'>
           <Link to='/about'>
-            <i class='fa-solid fa-circle-info'></i>
+            <i className='fa-solid fa-circle-info'></i>
           </Link>
         </li>
         <div ref={container} className='nav-login-list'>
           <div
             onClick={() => setIsOpen(!isOpen)}
             className='dropdown-icon-container'>
-            <i class='fa-solid fa-bars'></i>
+            <i className='fa-solid fa-bars'></i>
           </div>
           {isOpen && (
             <ul
@@ -66,7 +66,7 @@ const PhoneNav = ({ dark, setDark }) => {
               {!localStorage.getItem('isLoggedIn') && (
                 <Link to='/signup'>
                   <li className='nav__dropdown-item--phone nav__register'>
-                    <i class='fa-solid fa-user-plus'></i>
+                    <i className='fa-solid fa-user-plus'></i>
                   </li>
                 </Link>
               )}

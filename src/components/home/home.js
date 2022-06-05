@@ -36,7 +36,7 @@ const Home = ({
       <footer>
         <ul className='footer__list'>
           <li>
-            <i class='fa-regular fa-copyright'></i> 2022 Cookie bite
+            <i className='fa-regular fa-copyright'></i> 2022 Cookie bite
           </li>
           <li>
             <Link to='/forum'>Forum</Link>

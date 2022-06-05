@@ -1,4 +1,5 @@
 import './cardStyle.css';
+const host = process.env.REACT_APP_API_URL;
 
 export default function EventCard(props) {
   const { card, dark, handleFlag } = props;
@@ -14,7 +15,7 @@ export default function EventCard(props) {
         },
       };
 
-      fetch(`http://localhost:5000/event/${event.id}/save`, options)
+      fetch(`${host}/event/${event.id}/save`, options)
         .then((res) => res.json())
         .catch((err) => console.log('the error message!', err.message));
     } else {
@@ -26,7 +27,7 @@ export default function EventCard(props) {
         },
       };
 
-      fetch(`http://localhost:5000/event/unsave/${event.bookmarkId}`, options)
+      fetch(`${host}/event/unsave/${event.bookmarkId}`, options)
         .then((res) => res.json())
         .catch((err) => console.log('the error message!', err.message));
     }

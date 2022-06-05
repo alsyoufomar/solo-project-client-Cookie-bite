@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+const host = process.env.REACT_APP_API_URL;
 
 function Thread({ dark }) {
   const params = useParams();
@@ -8,7 +9,7 @@ function Thread({ dark }) {
   const [replies, setReplies] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/replies/${params.id}`)
+    fetch(`${host}/replies/${params.id}`)
       .then((res) => {
         if (!res.ok) throw Error('could not fetch the data from the source');
         return res.json();
@@ -32,7 +33,7 @@ function Thread({ dark }) {
       body: JSON.stringify({ content: reply }),
     };
 
-    fetch(`http://localhost:5000/reply/${params.id}`, options)
+    fetch(`${host}/reply/${params.id}`, options)
       .then((res) => {
         if (!res.ok) throw Error('could not fetch the data from the source');
         return res.json();

@@ -1,15 +1,13 @@
 import { useState, useEffect, React } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const EditProfile = ({ dark }) => {
   const [user, setUser] = useState({});
   const [errMessage, setErrMessage] = useState('');
   const [popup, setPopup] = useState(false);
   const navigate = useNavigate();
-
-  const url = 'http://localhost:5000/user/profile';
 
   useEffect(() => {
     const options = {
@@ -19,7 +17,7 @@ const EditProfile = ({ dark }) => {
         Authorization: 'Bearer ' + localStorage.getItem('jwt'),
       },
     };
-    fetch(url, options)
+    fetch(`${host}/user/profile`, options)
       .then((res) => {
         if (!res.ok) throw Error('could not fetch the data from the source');
         return res.json();
@@ -64,7 +62,7 @@ const EditProfile = ({ dark }) => {
       },
       body: JSON.stringify(user),
     };
-    fetch(`http://localhost:5000/user/profile`, options)
+    fetch(`${host}/user/profile`, options)
       .then((res) => res.json())
       .then((res) => {
         if (!res.ok && res.error) {

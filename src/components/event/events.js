@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import EventCard from './EventCard';
 import EventSearchForm from './EventSearchForm';
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const Events = ({
   setLocation,
@@ -21,7 +22,7 @@ const Events = ({
   const start = date[0].startDate;
   const end = date[0].endDate;
 
-  let url = 'http://localhost:5000/event';
+  let url = `${host}/event`;
   const dateRange = `&startDate=${start}&endDate=${end}`;
   const pagination = `&page=${page}&perPage=${perPage}`;
   let path = `location=${location}&genre=${formData.name}${dateRange}${pagination}`;

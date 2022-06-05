@@ -1,6 +1,7 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const Login = ({ dark }) => {
   const emptyUser = { username: '', password: '' };
@@ -28,7 +29,7 @@ const Login = ({ dark }) => {
       body: JSON.stringify(user),
     };
 
-    fetch('http://localhost:5000/user/login', options)
+    fetch(`${host}/user/login`, options)
       .then((res) => res.json())
       .then((res) => {
         if (!res.ok && res.error) {

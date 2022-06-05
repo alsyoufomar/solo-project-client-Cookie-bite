@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import EventCard from '../event/EventCard';
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const Featured = ({ dark }) => {
   const [featured, setFeatured] = useState([]);
@@ -13,7 +14,7 @@ const Featured = ({ dark }) => {
         Authorization: 'Bearer ' + localStorage.getItem('jwt'),
       },
     };
-    fetch('http://localhost:5000/event/featured', options)
+    fetch(`${host}/event/featured`, options)
       .then((res) => {
         if (!res.ok) throw Error('could not fetch the data from the source');
         return res.json();

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import EventCard from '../event/EventCard';
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const Bookmark = ({ dark }) => {
   const [data, setData] = useState([]);
 
-  const url = `http://localhost:5000/event/bookmark`;
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -14,7 +14,7 @@ const Bookmark = ({ dark }) => {
         Authorization: 'Bearer ' + localStorage.getItem('jwt'),
       },
     };
-    fetch(url, options)
+    fetch(`${host}/event/bookmark`, options)
       .then((res) => {
         if (!res.ok) throw Error('could not fetch the data from the source');
         return res.json();

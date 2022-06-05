@@ -1,13 +1,12 @@
 import { useState, useEffect, React } from 'react';
 import { useParams } from 'react-router-dom';
-
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const ViewProfile = ({ dark }) => {
   const [user, setUser] = useState({});
   const params = useParams();
-  console.log(params);
-  const url = `http://localhost:5000/user/profile/${params.id}`;
+  const url = `${host}/user/profile/${params.id}`;
 
   useEffect(() => {
     const options = {

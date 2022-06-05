@@ -1,6 +1,7 @@
 import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const Register = ({ dark }) => {
   const emptyUser = {
@@ -26,8 +27,6 @@ const Register = ({ dark }) => {
     });
   }
 
-  const url = 'http://localhost:5000';
-
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -36,7 +35,7 @@ const Register = ({ dark }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),
     };
-    fetch(`${url}/user/register`, options)
+    fetch(`${host}/user/register`, options)
       .then((res) => res.json())
       .then((res) => {
         if (!res.ok && res.error) {

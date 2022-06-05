@@ -2,6 +2,7 @@ import { useState, useEffect, React } from 'react';
 import { Link } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const Forum = ({ dark }) => {
   const [data, setData] = useState([]);
@@ -9,7 +10,7 @@ const Forum = ({ dark }) => {
   const [threadData, setThreadData] = useState(emptyThraed);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/threads`)
+    fetch(`${host}/threads`)
       .then((res) => res.json())
       .then((res) => {
         setData(res.data);
@@ -27,7 +28,7 @@ const Forum = ({ dark }) => {
       body: JSON.stringify(threadData),
     };
 
-    fetch('http://localhost:5000/thread', options)
+    fetch(`${host}/thread`, options)
       .then((res) => {
         if (!res.ok) throw Error('could not fetch the data from the source');
         return res.json();
@@ -57,7 +58,7 @@ const Forum = ({ dark }) => {
     let currentTime = new Date();
     return formatDistance(postTime, currentTime, { addSuffix: true });
   }
-  console.log(data);
+
   return (
     <div className={dark ? 'forum--dark' : 'forum'}>
       {localStorage.getItem('isLoggedIn') && (

@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import EventCard from '../event/EventCard';
 import './style.css';
+const host = process.env.REACT_APP_API_URL;
 
 const ThisWeek = ({ dark }) => {
   const [thisWeek, setThisWeek] = useState([]);
@@ -32,7 +33,7 @@ const ThisWeek = ({ dark }) => {
         Authorization: 'Bearer ' + localStorage.getItem('jwt'),
       },
     };
-    fetch('http://localhost:5000/event/ThisWeek?' + pagination, options)
+    fetch(`${host}/event/ThisWeek?` + pagination, options)
       .then((res) => {
         if (!res.ok) throw Error('could not fetch the data from the source');
         return res.json();
