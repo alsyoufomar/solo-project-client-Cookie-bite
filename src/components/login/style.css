@@ -1,5 +1,6 @@
-.login-page {
-  padding: 4em;
+.login-page,
+.login-page--dark {
+  padding: 2em;
   background-color: var(--clr-light);
   display: flex;
   justify-content: center;
@@ -7,7 +8,12 @@
   min-height: 100vh;
 }
 
-.login-form {
+.login-page--dark {
+  background-color: var(--clr-dark-2);
+}
+
+.login-form,
+.login-form--dark {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -18,10 +24,23 @@
   padding: 1em;
   border-radius: 1rem;
   background-color: #fff;
+  transition: box-shadow 0.5s;
+}
+
+.login-form--dark {
+  background-color: var(--clr-dark);
+  box-shadow: 0 1px 15px var(--clr-accent-3);
+  color: var(--clr-light);
+}
+
+.login-form--dark:hover {
+  box-shadow: 0px 1px 25px var(--clr-accent-2);
 }
 
 .login-form input,
-.submit {
+.login-form--dark input,
+.submit,
+.submit--dark {
   width: 100%;
   height: 3em;
   outline: none;
@@ -31,7 +50,14 @@
   padding: 0 0.5em;
 }
 
-.submit {
+.login-form--dark input,
+.submit--dark {
+  background-color: var(--clr-dark-2);
+  color: var(--clr-light);
+}
+
+.submit,
+.submit--dark {
   cursor: pointer;
   transition: background 0.5s;
   font-weight: var(--fw-bold);

@@ -2,7 +2,7 @@ import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 
-const Register = () => {
+const Register = ({ dark }) => {
   const emptyUser = {
     username: '',
     email: '',
@@ -58,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <div className='registration-page'>
+    <div className={dark ? 'registration-page--dark' : 'registration-page'}>
       {popup && (
         <div className='err__popup'>
           <div onClick={() => setPopup(false)} className='err__exit'>
@@ -69,7 +69,9 @@ const Register = () => {
           {errMessage}
         </div>
       )}
-      <form className='signup-form' onSubmit={handleRegister}>
+      <form
+        className={dark ? 'signup-form--dark' : 'signup-form'}
+        onSubmit={handleRegister}>
         <input
           type='text'
           placeholder='Username'
@@ -118,7 +120,7 @@ const Register = () => {
           value={user.confirm_password}
           autoComplete='off'
         />
-        <button className='submit'>Sign up</button>
+        <button className={dark ? 'submit--dark' : 'submit'}>Sign up</button>
       </form>
     </div>
   );

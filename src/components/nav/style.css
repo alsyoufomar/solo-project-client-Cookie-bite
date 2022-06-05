@@ -4,7 +4,6 @@
   display: flex;
   padding: 0 2.25em;
   box-shadow: 0 0.18641em 0.466025em rgba(0, 0, 0, 0.1);
-  position: fixed;
   left: 0;
   width: 100%;
   width: 100%;
@@ -14,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  position: fixed;
 }
 
 .nav {

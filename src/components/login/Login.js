@@ -2,7 +2,7 @@ import { useState, React } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 
-const Login = () => {
+const Login = ({ dark }) => {
   const emptyUser = { username: '', password: '' };
   const [user, setUser] = useState({ emptyUser });
   const [errMessage, setErrMessage] = useState('');
@@ -29,10 +29,7 @@ const Login = () => {
     };
 
     fetch('http://localhost:5000/user/login', options)
-      .then((res) => {
-        if (!res.ok) throw Error('could not fetch the data from the source');
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((res) => {
         if (!res.ok && res.error) {
           setErrMessage(res.error);
@@ -48,7 +45,7 @@ const Login = () => {
   };
 
   return (
-    <div className='login-page'>
+    <div className={dark ? 'login-page--dark' : 'login-page'}>
       {popup && (
         <div className='err__popup'>
           <div onClick={() => setPopup(false)} className='err__exit'>
@@ -59,7 +56,9 @@ const Login = () => {
           {errMessage}
         </div>
       )}
-      <form className='login-form' onSubmit={handleLogin}>
+      <form
+        className={dark ? 'login-form--dark' : 'login-form'}
+        onSubmit={handleLogin}>
         <input
           type='text'
           placeholder='Username'
@@ -76,7 +75,7 @@ const Login = () => {
           value={user.password}
           autoComplete='off'
         />
-        <button className='submit'>Login</button>
+        <button className={dark ? 'submit--dark' : 'submit'}>Login</button>
       </form>
     </div>
   );
