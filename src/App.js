@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import './styles/App.css';
-import Nav from './components/nav/Nav.js';
-import PhoneNav from './components/nav/PhoneNav';
+import Nav from './components/nav/nav.js';
+import PhoneNav from './components/nav/phoneNav';
 import Home from './components/home/Home';
 import Events from './components/event/Events';
 import Forum from './components/forum/Forum';
