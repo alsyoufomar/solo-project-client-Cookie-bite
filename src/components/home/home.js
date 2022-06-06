@@ -1,7 +1,7 @@
 import { React } from 'react';
-import FilterBar from '../filterBar/Filterbar';
-import Featured from './Featured';
-import ThisWeek from './ThisWeek';
+import FilterBar from '../filterBar/filterbar';
+import Featured from './featured';
+import ThisWeek from './thisweek';
 import { Link } from 'react-router-dom';
 
 import './style.css';

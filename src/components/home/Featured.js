@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import EventCard from '../event/EventCard';
+import EventCard from '../event/eventcard';
 import './style.css';
 const host = process.env.REACT_APP_API_URL;
 

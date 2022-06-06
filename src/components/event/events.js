@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import EventCard from './EventCard';
-import EventSearchForm from './EventSearchForm';
+import EventCard from './eventcard';
+import EventSearchForm from './eventsearchform';
 import './style.css';
 const host = process.env.REACT_APP_API_URL;
 

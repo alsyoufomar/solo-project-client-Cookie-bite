@@ -3,17 +3,17 @@ import { useState } from 'react';
 import './styles/App.css';
 import Nav from './components/nav/nav.js';
 import PhoneNav from './components/nav/phonenav.js';
-import Home from './components/home/Home';
-import Events from './components/event/Events';
-import Forum from './components/forum/Forum';
+import Home from './components/home/home';
+import Events from './components/event/events';
+import Forum from './components/forum/forum';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
-import ViewProfile from './components/profile/ViewProfile';
-import EditProfile from './components/profile/EditProfile';
-import MyProfile from './components/profile/MyProfile';
-import Thread from './components/forum/Thread';
-import Bookmark from './components/bookmark/Bookmark';
-import About from './components/about/About';
+import ViewProfile from './components/profile/viewprofile';
+import EditProfile from './components/profile/editprofile';
+import MyProfile from './components/profile/myprofile';
+import Thread from './components/forum/thread';
+import Bookmark from './components/bookmark/bookmark';
+import About from './components/about/about';
 
 function App() {
   const [location, setLocation] = useState('Location');

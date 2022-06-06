@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import DatePicker from '../DatePicker';
-import Dropdown from '../dropdown/Dropdown';
+import DatePicker from '../datepicker';
+import Dropdown from '../dropdown/dropdown';
 import './style.css';
 
 const EventSearchForm = ({

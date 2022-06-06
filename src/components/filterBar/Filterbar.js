@@ -1,7 +1,7 @@
 import { useState, React, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import DatePicker from '../DatePicker';
-import Dropdown from '../dropdown/Dropdown';
+import DatePicker from '../datepicker';
+import Dropdown from '../dropdown/dropdown';
 import './style.css';
 
 const FilterBar = ({
