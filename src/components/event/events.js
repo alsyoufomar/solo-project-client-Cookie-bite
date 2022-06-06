@@ -46,7 +46,7 @@ const Events = ({
           return [...new Set([...x, ...res.eventsData])];
         });
       });
-  }, [filter]);
+  }, [filter, url, path]);
 
   function handleFlag(target) {
     const updatedThisWeek = data.map((x) => {

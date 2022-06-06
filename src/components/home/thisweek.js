@@ -44,7 +44,7 @@ const ThisWeek = ({ dark }) => {
           return [...new Set([...x, ...res.thisWeekData])];
         });
       });
-  }, [page, filter]);
+  }, [page, filter, pagination]);
 
   if (!thisWeek) return <></>;
 

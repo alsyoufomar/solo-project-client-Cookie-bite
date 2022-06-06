@@ -20,7 +20,7 @@ function Thread({ dark }) {
           setReplies(res.foundThread.reply);
         }
       });
-  }, []);
+  }, [params.id]);
 
   const handleCreateThread = async (e) => {
     e.preventDefault();

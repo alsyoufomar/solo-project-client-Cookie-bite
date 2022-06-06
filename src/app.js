@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
-import './styles/App.css';
+import './styles/app.css';
 import Nav from './components/nav/nav.js';
 import PhoneNav from './components/nav/phonenav.js';
 import Home from './components/home/home';
@@ -79,4 +79,3 @@ function App() {
 }
 
 export default App;
-

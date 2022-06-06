@@ -24,7 +24,7 @@ const MyProfile = ({ dark }) => {
       .then((res) => {
         setUser(res.user);
       });
-  }, []);
+  }, [url]);
 
   if (!user.profile) return <></>;
 
