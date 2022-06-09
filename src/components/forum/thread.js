@@ -54,7 +54,7 @@ function Thread({ dark }) {
   }
 
   if (!replies) return <></>;
-  console.log(replies);
+
   return (
     <div className={dark ? 'thread--dark' : 'thread'}>
       <div className={dark ? 'main-thread--dark' : 'main-thread'}>

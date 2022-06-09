@@ -162,6 +162,7 @@ a {
   border: none;
   outline: none;
   color: var(--clr-accent);
+  text-shadow: var(--clr-dark) 1px 0 10px;
   font-size: var(--fs-h3);
   background-color: transparent;
   transition: background 0.5s;
@@ -185,7 +186,7 @@ a {
 .thread,
 .thread--dark {
   padding: 6.5em 6.5em;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .thread--dark {
@@ -277,6 +278,10 @@ a {
   color: var(--clr-light);
 }
 
+.reply-create--dark input {
+  color: var(--clr-light);
+}
+
 .reply-create input,
 .reply-create--dark input {
   outline: none;
@@ -302,7 +307,7 @@ a {
   z-index: 5;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 1100px) {
   .thread-create,
   .thread-create--dark {
     width: 100%;
@@ -325,5 +330,12 @@ a {
 
   .add-thread {
     right: calc(var(--btn) - 1em);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .forum {
+    padding: 6.5em 4em;
+    min-height: 100vh;
   }
 }
