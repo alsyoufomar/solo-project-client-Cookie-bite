@@ -162,7 +162,7 @@ a {
   border: none;
   outline: none;
   color: var(--clr-accent);
-  text-shadow: var(--clr-dark) 1px 0 10px;
+  text-shadow: var(--clr-light) 1px 0 10px;
   font-size: var(--fs-h3);
   background-color: transparent;
   transition: background 0.5s;
@@ -213,6 +213,7 @@ a {
 .main-thread--dark {
   color: var(--clr-light);
   border-bottom: 1px solid var(--clr-light);
+  z-index: 5;
 }
 
 .main-thread h1,
@@ -334,7 +335,10 @@ a {
 }
 
 @media only screen and (max-width: 900px) {
-  .forum {
+  .thread,
+  .thread--dark,
+  .forum,
+  .forum--dark {
     padding: 6.5em 4em;
     min-height: 100vh;
   }

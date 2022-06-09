@@ -32,11 +32,12 @@
   justify-content: flex-start;
   align-items: center;
   margin: 0;
-  font-size: var(--fs-h3);
+  font-size: var(--fs-body);
   color: var(--clr-light);
 }
 
 .nav__list--phone {
+  font-size: var(--fs-h3);
   justify-content: space-evenly;
   width: 100%;
 }
