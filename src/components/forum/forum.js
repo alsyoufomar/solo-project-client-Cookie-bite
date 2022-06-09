@@ -59,6 +59,8 @@ const Forum = ({ dark }) => {
     return formatDistance(postTime, currentTime, { addSuffix: true });
   }
 
+  if (!data) return <></>;
+
   return (
     <div className={dark ? 'forum--dark' : 'forum'}>
       {localStorage.getItem('isLoggedIn') && (
