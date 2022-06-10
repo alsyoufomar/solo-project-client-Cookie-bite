@@ -29,12 +29,12 @@ Also, we have introduced a section where the user can save events they may be in
 
 ## Live Website's Link
 
-![Cookie bite](https://cookie-bite.netlify.app/)
+[Cookie bite](https://cookie-bite.netlify.app/)
 
 ## Stack used
 
-Front-end: Javascript, React, HTML, CSS
-Back-end: Node.js, Express.js, Prisma, PostgreSQL
+- Front-end: Javascript, React, HTML, CSS
+- Back-end: Node.js, Express.js, Prisma, PostgreSQL
 
 ## Diagrams
 
