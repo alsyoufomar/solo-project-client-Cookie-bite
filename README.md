@@ -29,8 +29,8 @@ Also, we have introduced a section where the user can save events they may be in
 
 ## Links
 
-[Cookie bite](https://cookie-bite.netlify.app/)
-[The server repo](https://github.com/alsyoufomar/solo-project-server-Cookie-bite)
+- [Cookie bite](https://cookie-bite.netlify.app/)
+- [The server repo](https://github.com/alsyoufomar/solo-project-server-Cookie-bite)
 
 ## Stack used
 
