@@ -27,14 +27,15 @@ Also, we have introduced a section where the user can save events they may be in
 4. Run `npm ci` to install the project dependencies.
 5. Run `npm start` to run the dev mode.
 
-## Live Website's Link
+## Links
 
 [Cookie bite](https://cookie-bite.netlify.app/)
+[The server repo](https://github.com/alsyoufomar/solo-project-server-Cookie-bite)
 
 ## Stack used
 
 - Front-end: Javascript, React, HTML, CSS
-- Back-end: Node.js, Express.js, Prisma, PostgreSQL
+- Back-end: Node.js, Express.js, Prisma, PostgreSQL 
 
 ## Diagrams
 
