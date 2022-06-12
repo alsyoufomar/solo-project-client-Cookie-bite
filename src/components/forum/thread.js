@@ -7,6 +7,7 @@ function Thread({ dark }) {
   const [thread, setThread] = useState([]);
   const [reply, setReply] = useState('');
   const [replies, setReplies] = useState([]);
+  const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
     fetch(`${host}/replies/${params.id}`)
@@ -18,6 +19,7 @@ function Thread({ dark }) {
         if (!res.error) {
           setThread(res.foundThread);
           setReplies(res.foundThread.reply);
+          setIsPending(false);
         }
       });
   }, [params.id]);
@@ -53,7 +55,9 @@ function Thread({ dark }) {
     setReply(value);
   }
 
-  if (!replies) return <></>;
+  if (!replies || isPending) {
+    return <i className='spinner fa-solid fa-cookie-bite'></i>;
+  }
 
   return (
     <div className={dark ? 'thread--dark' : 'thread'}>

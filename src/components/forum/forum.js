@@ -8,12 +8,14 @@ const Forum = ({ dark }) => {
   const [data, setData] = useState([]);
   const emptyThraed = { title: '', content: '' };
   const [threadData, setThreadData] = useState(emptyThraed);
+  const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
     fetch(`${host}/threads`)
       .then((res) => res.json())
       .then((res) => {
         setData(res.data);
+        setIsPending(false);
       });
   }, []);
 
@@ -59,7 +61,9 @@ const Forum = ({ dark }) => {
     return formatDistance(postTime, currentTime, { addSuffix: true });
   }
 
-  if (!data) return <></>;
+  if (!data || isPending) {
+    return <i className='spinner fa-solid fa-cookie-bite'></i>;
+  }
 
   return (
     <div className={dark ? 'forum--dark' : 'forum'}>

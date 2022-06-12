@@ -5,6 +5,7 @@ const host = process.env.REACT_APP_API_URL;
 
 const Bookmark = ({ dark }) => {
   const [data, setData] = useState([]);
+  const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
     const options = {
@@ -21,6 +22,7 @@ const Bookmark = ({ dark }) => {
       })
       .then((res) => {
         setData(res.foundBookmarks);
+        setIsPending(false);
       });
   }, []);
 
@@ -39,7 +41,9 @@ const Bookmark = ({ dark }) => {
     setData(updatedBookmarks);
   }
 
-  if (!data) return <></>;
+  if (!data || isPending) {
+    return <i className='spinner fa-solid fa-cookie-bite'></i>;
+  }
 
   return (
     <div className={dark ? 'bookmark--dark' : 'bookmark'}>

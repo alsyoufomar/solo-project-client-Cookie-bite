@@ -8,6 +8,7 @@ const ThisWeek = ({ dark }) => {
   const [page, setPage] = useState(0);
   const [filter, setFilter] = useState(false);
   const [dataCount, setDataCount] = useState(0);
+  const [isPending, setIsPending] = useState(true);
   const perPage = 8;
   const pagination = `&page=${page}&perPage=${perPage}`;
 
@@ -43,10 +44,13 @@ const ThisWeek = ({ dark }) => {
         setThisWeek((x) => {
           return [...new Set([...x, ...res.thisWeekData])];
         });
+        setIsPending(false);
       });
   }, [page, filter, pagination]);
 
-  if (!thisWeek) return <></>;
+  if (isPending || !thisWeek) {
+    return <i className='spinner fa-solid fa-cookie-bite'></i>;
+  }
 
   return (
     <>

@@ -5,6 +5,7 @@ const host = process.env.REACT_APP_API_URL;
 
 const Featured = ({ dark }) => {
   const [featured, setFeatured] = useState([]);
+  const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
     const options = {
@@ -21,6 +22,7 @@ const Featured = ({ dark }) => {
       })
       .then((res) => {
         setFeatured(res.events);
+        setIsPending(false);
       });
   }, []);
 
@@ -31,7 +33,9 @@ const Featured = ({ dark }) => {
     setFeatured(updatedFeatured);
   }
 
-  if (!featured) return <></>;
+  if (!featured || isPending) {
+    return <i className='spinner fa-solid fa-cookie-bite'></i>;
+  }
 
   return (
     <>

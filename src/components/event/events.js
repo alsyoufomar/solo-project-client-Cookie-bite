@@ -16,6 +16,7 @@ const Events = ({
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [filter, setFilter] = useState(false);
+  const [isPending, setIsPending] = useState(true);
   const [dataCount, setDataCount] = useState(0);
 
   const perPage = 8;
@@ -45,8 +46,10 @@ const Events = ({
         setData((x) => {
           return [...new Set([...x, ...res.eventsData])];
         });
+        setIsPending(false);
       });
-  }, [filter, url, path]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filter, url]);
 
   function handleFlag(target) {
     const updatedThisWeek = data.map((x) => {
@@ -62,7 +65,9 @@ const Events = ({
     }
   }
 
-  if (!data) return <></>;
+  if (!data || isPending) {
+    return <i className='spinner fa-solid fa-cookie-bite'></i>;
+  }
 
   return (
     <div
