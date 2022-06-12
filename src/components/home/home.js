@@ -33,19 +33,6 @@ const Home = ({
       </div>
       <Featured dark={dark} />
       <ThisWeek dark={dark} />
-      <footer>
-        <ul className='footer__list'>
-          <li>
-            <i className='fa-regular fa-copyright'></i> 2022 Cookie bite
-          </li>
-          <li>
-            <Link to='/forum'>Forum</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-        </ul>
-      </footer>
     </div>
   );
 };

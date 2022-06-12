@@ -74,6 +74,13 @@ function App() {
         </Routes>
       </main>
       <PhoneNav dark={dark} setDark={setDark} />
+      <footer>
+        <ul className='footer__list'>
+          <li>
+            <i className='fa-regular fa-copyright'></i> 2022 Cookie bite
+          </li>
+        </ul>
+      </footer>
     </div>
   );
 }
