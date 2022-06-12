@@ -2,8 +2,6 @@ import { React } from 'react';
 import FilterBar from '../filterbar/filterbar';
 import Featured from './featured';
 import ThisWeek from './thisweek';
-import { Link } from 'react-router-dom';
-
 import './style.css';
 
 const Home = ({
