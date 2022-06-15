@@ -5,7 +5,7 @@ const host = process.env.REACT_APP_API_URL;
 
 const Login = ({ dark }) => {
   const emptyUser = { username: '', password: '' };
-  const [user, setUser] = useState({ emptyUser });
+  const [user, setUser] = useState(emptyUser);
   const [errMessage, setErrMessage] = useState('');
   const [popup, setPopup] = useState(false);
   const navigate = useNavigate();
