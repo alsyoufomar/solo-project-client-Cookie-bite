@@ -38,6 +38,11 @@
   display: none;
 }
 
+.featured {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .featured .event {
   flex: 0 0 auto;
   position: relative;
@@ -185,9 +190,6 @@ footer {
 @media only screen and (max-width: 750px) {
   .featured {
     height: 28rem;
-  }
-
-  .fa-calendar {
   }
 
   div.rdrCalendarWrapper.rdrDateRangeWrapper.fa-calendar {
