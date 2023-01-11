@@ -1,8 +1,8 @@
-import { useState, React, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import DatePicker from '../datepicker';
-import Dropdown from '../dropdown/dropdown';
-import './style.css';
+import { useState, React, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import DatePicker from '../datepicker'
+import Dropdown from '../dropdown/dropdown'
+import './style.css'
 
 const FilterBar = ({
   setLocation,
@@ -13,38 +13,38 @@ const FilterBar = ({
   date,
   dark,
 }) => {
-  const [dateToggle, setDateToggle] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const dateContainer = useRef(null);
-  const container = useRef(null);
+  const [dateToggle, setDateToggle] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const dateContainer = useRef(null)
+  const container = useRef(null)
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen, dateToggle]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen, dateToggle])
 
   const handleClickOutside = (event) => {
     if (container.current && !container.current.contains(event.target)) {
-      setIsOpen(false);
+      setIsOpen(false)
     }
     if (
       dateContainer.current &&
       !dateContainer.current.contains(event.target)
     ) {
-      setDateToggle(false);
+      setDateToggle(false)
     }
-  };
+  }
 
   function handleChange(event) {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
         [name]: value,
-      };
-    });
+      }
+    })
   }
 
   return (
@@ -55,7 +55,7 @@ const FilterBar = ({
         } filter-bar__venue`}>
         <i className='event__icon fa-solid fa-magnifying-glass'></i>
         <input
-          placeholder='artist, venue or keyword'
+          placeholder='club, gigs, festivals or venue name'
           autoComplete='off'
           className={dark ? 'filter-bar__name--dark' : 'filter-bar__name'}
           id='name'
@@ -99,7 +99,7 @@ const FilterBar = ({
         </Link>
       </li>
     </ul>
-  );
-};
+  )
+}
 
-export default FilterBar;
+export default FilterBar
